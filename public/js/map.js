@@ -14,6 +14,14 @@ L.control.zoom({
   position: 'bottomleft'
 }).addTo(map);
 
+const removeAllMarkers = () => {
+  map.eachLayer(function(layer) {
+    if (layer instanceof L.Marker) {
+      map.removeLayer(layer)
+    }
+  })
+}
+
 const fetchData = async () => {
   const response = await fetch('/api/teams.json');
   const json = await response.json();
@@ -22,6 +30,9 @@ const fetchData = async () => {
 
 const updateMap = (data) => {
   console.log(data);
+
+  removeAllMarkers();
+
   data.teams.forEach(team => {
     const marker = L.marker([team.coordinate.latitude, team.coordinate.longitude]).addTo(map);
 const popupContents = `
