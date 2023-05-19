@@ -16,8 +16,8 @@ class Config {
 	}
 
 	/**
-	 * Gets the event name
-	 * @return string [Event name]
+	 * Gets the countdown start date
+	 * @return DateTime [The time that the countdown should start from]
 	 */
 	public function getCountdownStart(): DateTime {
 		return $this->countdown_start;
