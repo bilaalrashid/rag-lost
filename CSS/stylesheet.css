@@ -1,0 +1,75 @@
+@font-face {
+	font-family: "Sofia Pro Bold";
+	src: url("fonts/SofiaProBold.otf")
+}
+
+@font-face {
+	font-family: "Sofia Pro";
+	src: url("fonts/SofiaProRegular.otf")
+}
+
+#teamSelector {
+    background-color: lightgrey;
+    width: 20%;
+    height: 100%;
+    float: right;
+    overflow: scroll;;
+    padding:1px;
+    padding-right: 1px;
+}
+
+
+h4 .card-title {
+	font-family: 'Sofia Pro Bold', Arial, sans-serif;
+}
+
+p {
+	font-family: 'Sofia Pro', Arial, sans-serif;
+}
+
+.team-name{
+    height: 40%;
+    word-wrap: break-word;
+}
+
+#map {
+    width: 80%;
+    height: 100%;
+    float: left;
+}
+
+.card-columns{
+    column-count: 5;
+}
+
+.card-text.distance {
+    float: left;
+
+}
+
+.card-text.location {
+
+    float: right;
+}
+
+.teamHistory {
+    display:none;
+}
+
+.teamCurrentLocation {
+
+}
+
+.expandSymbol{
+    margin: 0px;
+}
+
+.teamCard{
+    margin: 1px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}

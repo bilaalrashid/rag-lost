@@ -1,3 +1,2 @@
-# RAG Lost
-
-A web tracker for RAG Lost!
+# ragtracker
+Tracking website for SUSU RAG's jailbreak and similar events.
