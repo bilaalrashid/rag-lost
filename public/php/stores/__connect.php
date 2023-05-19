@@ -2,7 +2,7 @@
 
 // TODO - don't store this in version control
 
-define("DB_USER", "root");
-define("DB_PASSWORD", "root");
+define("DB_USER", "global_rw");
+define("DB_PASSWORD", "global_rw");
 define("DB_HOST", "localhost");
-define("DB_NAME", "lost");
+define("DB_NAME", "raglost");
