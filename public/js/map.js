@@ -22,6 +22,16 @@ const fetchData = async () => {
 
 const updateMap = (data) => {
   console.log(data);
+  data.teams.forEach(team => {
+    const marker = L.marker([team.coordinate.latitude, team.coordinate.longitude]).addTo(map);
+const popupContents = `
+  <h2>${team.name}</h2>
+  <p>${team.members}</p>
+  <p>${team.description}</p>
+  <p><a href="${team.donateUrl}" target="_blank">Donate Online</a></p>
+`;
+    marker.bindPopup(popupContents);
+  });
 }
 
 const refreshData = async () => {
