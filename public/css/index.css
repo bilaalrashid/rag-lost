@@ -11,6 +11,20 @@ body {
   z-index: 1;
 }
 
+.map-popup {
+  text-align: center;
+}
+
+.map-popup h2 {
+  margin: 0;
+}
+
+.map-popup .members {
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 8px;
+}
+
 .main-banner {
   position: fixed;
   top: 16px;

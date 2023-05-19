@@ -37,10 +37,12 @@ const updateMap = (data) => {
   data.teams.forEach(team => {
     const marker = L.marker([team.coordinate.latitude, team.coordinate.longitude]).addTo(map);
     const popupContents = `
-      <h2>${team.name}</h2>
-      <p>${team.members}</p>
-      <p>${team.description}</p>
-      <p><a href="${team.donateUrl}" target="_blank">Donate Online</a></p>
+      <div class="map-popup">
+        <h2>${team.name}</h2>
+        <p class="members">${team.members}</p>
+        <p class="description">${team.description}</p>
+        <p class="donate"><a href="${team.donateUrl}" target="_blank">Donate Online</a></p>
+      </div>
     `;
     marker.bindPopup(popupContents);
   });
