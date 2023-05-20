@@ -28,8 +28,8 @@
         <div class="login-error">
           <p>Username or password is not correct</p>
         </div>
+				<?php } ?>
 			</div>
-      <?php } ?>
 		</section>
 		<footer></footer>
 	</body>
