@@ -18,7 +18,7 @@
           <div class="form-row">
             <label for="team_name">Team Name</label>
             <span>This is a name for the team</span>
-            <input type="text" name="team_name" placeholder="Some text here..." id="team_name" required1>
+            <input type="text" name="team_name" placeholder="Some text here..." id="team_name" required>
           </div>
           <div class="form-row">
             <label for="members">Members</label>
@@ -33,7 +33,7 @@
           <div class="form-row">
             <label for="donate_url">Donation Link</label>
             <span>A link to donate to the team (or just put the main donation link if there is none)</span>
-            <input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" required1>
+            <input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" required>
           </div>
           <div class="form-row">
             <label for="team_image_url">URL to an image of the team</label>
