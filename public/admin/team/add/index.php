@@ -12,6 +12,7 @@
     <?php require_once "../../../tpl/admin/header.php"; ?>
 		<section>
 			<div class="wrapper">
+        <span><a href="/admin">Home</a> > Create Team</span>
         <h1>Create Team</h1>
         <form method="POST">
           <div class="form-row">
