@@ -1,6 +1,6 @@
 <?php
 
-require "__connect.php";
+require_once "__connect.php";
 
 abstract class DatabaseController {
 
