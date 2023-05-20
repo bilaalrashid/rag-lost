@@ -25,13 +25,24 @@
 				</div>
 				<div>
 					<h2>Teams</h2>
-					<a href="/admin/team/add">Create Team</a>
+					<p><a href="/admin/team/add">Create Team</a></p>
 					<hr />
-					<div>
-						<h3>Team Name</h3>
-						<span><a href="/team/edit">Edit</a> | <a href="/team/location-update">Update Location</a></span>
-					</div>
-					<hr />
+					<?php 
+						if (empty($model)) {
+							echo "<p>No teams found :(</p>";
+						} else {
+							foreach ($model as $team) {
+					?>
+							<div>
+								<h3><?php echo $team->getTeamName(); ?></h3>
+								<p><?php echo $team->getMembers(); ?></p>
+								<p><a href="/team/edit">Edit Details</a> | <a href="/team/location-update">Update Location</a></p>
+							</div>
+							<hr />
+					<?php
+							}
+						} 
+					?>
 				</div>
 			</div>
 		</section>

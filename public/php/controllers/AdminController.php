@@ -3,7 +3,9 @@
 class AdminController {
 	
 	public function main() {
-		return null;
+		$store = new TeamStore();
+		$teams = $store->getAllTeams();
+		return $teams;
 	}
 
 	public function post() {
