@@ -21,7 +21,8 @@
 				</p>
 				<div>
 					<h1>General Settings</h1>
-					<a href="/admin/settings">Edit here</a>
+					<p>You probably won't have to touch this when the event is actually running, except to update the fundraised total that is displayed on the map.</p>
+					<a href="/admin/settings">Edit Settings Here</a>
 				</div>
 				<div>
 					<h1>Teams</h1>
