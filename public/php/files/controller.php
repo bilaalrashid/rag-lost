@@ -9,7 +9,7 @@ if ($isLoggedIn != true) {
 
 	if (!in_array($_SERVER["REQUEST_URI"], $unrestricted, true)) {
 		$host = $_SERVER["HTTP_HOST"];
-		header("Location: http://{$host}/login/");
+		header("Location: http://{$host}/admin/login/");
 		exit();
 	}
 }
