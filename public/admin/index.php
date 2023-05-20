@@ -25,6 +25,7 @@
 				</div>
 				<div>
 					<h2>Teams</h2>
+					<a href="/admin/team/add">Create Team</a>
 					<hr />
 					<div>
 						<h3>Team Name</h3>
