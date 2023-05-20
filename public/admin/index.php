@@ -20,11 +20,11 @@
 					RAG Love ❤️
 				</p>
 				<div>
-					<h2>General Settings</h2>
+					<h1>General Settings</h1>
 					<a href="/admin/settings">Edit here</a>
 				</div>
 				<div>
-					<h2>Teams</h2>
+					<h1>Teams</h1>
 					<p><a href="/admin/team/add">Create Team</a></p>
 					<hr />
 					<?php 
