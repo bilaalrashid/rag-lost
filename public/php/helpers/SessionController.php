@@ -17,4 +17,12 @@ class SessionController {
 		}			
 	}
 
+  /**
+	 * Sets the current login status
+	 * @param boolean $isLoggedIn  [The login status to set]
+	 */
+	public static function setIsLoggedIn(bool $isLoggedIn) {
+    $_SESSION["auth"] = $isLoggedIn;	
+	}
+
 }
