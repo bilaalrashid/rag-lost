@@ -18,7 +18,7 @@
           <div class="form-row">
             <label for="team_name">Team Name</label>
             <span>This is a name for the team</span>
-            <input type="text" name="team_name" placeholder="Some text here..." id="team_name" required>
+            <input type="text" name="team_name" placeholder="Some text here..." id="team_name" required1>
           </div>
           <div class="form-row">
             <label for="members">Members</label>
@@ -33,7 +33,7 @@
           <div class="form-row">
             <label for="donate_url">Donation Link</label>
             <span>A link to donate to the team (or just put the main donation link if there is none)</span>
-            <input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" required>
+            <input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" required1>
           </div>
           <div class="form-row">
             <label for="team_image_url">URL to an image of the team</label>
@@ -42,6 +42,11 @@
           </div>
           <button type="submit">Create</button>
         </form>
+        <?php if (isset($post) && !$post) { ?>
+        <div class="error">
+          <p>Error. Basically you've inputted something wrong here or missed an item (or you have failed at hacking us - in which case, ha!)</p>
+        </div>
+				<?php } ?>
 			</div>
 		</section>
 	</body>

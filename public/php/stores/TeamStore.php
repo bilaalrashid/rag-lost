@@ -17,11 +17,11 @@ class TeamStore extends DatabaseController {
 		* @param  string  $team_image_url  [The URL of the team image]
 		* @param  string  $team_color      [The color of the team]
     */
-	public function createTeam(string $team_name, string $members, string $description, string $donate_url, string $pin_url, string $team_image_url, string $team_color) {
+	public function addTeam(string $team_name, string $members, string $description, string $donate_url, string $pin_url, string $team_image_url, string $team_color) {
 		$db = $this->connection;
 
 		$sql = 
-    "INSERT INTO team(team_name, members, `description`, donate_url, pin_url, team_image_url, team_color) 
+    "INSERT INTO team(team_name, members, team_description, donate_url, pin_url, team_image_url, team_color) 
 			VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		$statement = $db->prepare($sql);
@@ -82,7 +82,7 @@ class TeamStore extends DatabaseController {
 
 		$sql = 
     "UPDATE team 
-			SET team_name = ?, members = ?, `description` = ?, donate_url = ?, pin_url = ?, team_image_url = ?, team_color = ?
+			SET team_name = ?, members = ?, team_description = ?, donate_url = ?, pin_url = ?, team_image_url = ?, team_color = ?
 			WHERE id = ?";
 
 		$statement = $db->prepare($sql);
@@ -119,7 +119,7 @@ class TeamStore extends DatabaseController {
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
 
-			$team = new Team($row["id"], $row["team_name"], $row["members"], $row["description"], $row["donate_url"], $row["pin_url"], $row["team_image_url"], $row["team_color"]);
+			$team = new Team($row["id"], $row["team_name"], $row["members"], $row["team_description"], $row["donate_url"], $row["pin_url"], $row["team_image_url"], $row["team_color"]);
 		}
 
 		$statement->close();
