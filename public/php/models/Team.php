@@ -11,6 +11,8 @@ class Team {
   private $team_description;
   private $donate_url;
   private $pin_url;
+  private $team_image_url;
+  private $team_color;
 
 	/**
 	 * Constructor
@@ -20,14 +22,18 @@ class Team {
    * @param string $team_description  [A description of the team]
    * @param string $donate_url        [The URL to donate directly to the team]
    * @param string $pin_url           [The URL of the pin to display on the map for the team]
+   * @param string $team_image_url    [The URL of the team image]
+   * @param string $team_color        [The color of the team]
 	 */
-	public function __construct(int $id, string $team_name, string $members, string $team_description, string $donate_url, string $pin_url) {
+	public function __construct(int $id, string $team_name, string $members, string $team_description, string $donate_url, string $pin_url, string $team_image_url, string $team_color) {
     $this->id = $id;
     $this->team_name = $team_name;
     $this->members = $members;
     $this->team_description = $team_description;
     $this->donate_url = $donate_url;
     $this->pin_url = $pin_url;
+    $this->team_image_url = $team_image_url;
+    $this->team_color = $team_color;
 	}
 
   /**
@@ -76,6 +82,22 @@ class Team {
    */
   public function getPinURL(): string {
     return $this->pin_url;
+  }
+
+  /**
+   * Gets the URL of the team image
+   * @return string [The URL of the team image]
+   */
+  public function getTeamImageURL(): string {
+    return $this->team_image_url;
+  }
+
+  /**
+   * Gets the color of the team
+   * @return string [The color of the team]
+   */
+  public function getTeamColor(): string {
+    return $this->team_color;
   }
 
 }
