@@ -9,13 +9,13 @@ class LocationUpdateStore extends DatabaseController {
    /**
     * Creates a new location update for a team.
     *
-    * @param  string  $latitude          [The updated latitude]
-    * @param  string  $longitude         [The update longitude]
+    * @param  float   $latitude          [The updated latitude]
+    * @param  float   $longitude         [The update longitude]
     * @param  string  $update_message    [A message to display with the update]
     * @param  string  $update_timestamp  [The time that the update was made]
     * @param  int     $team_id           [The ID of the team that is update is for]
     */
-	public function createUpdate(string $latitude, string $longitude, string $update_message, string $update_timestamp, int $team_id) {
+	public function createUpdate(float $latitude, float $longitude, string $update_message, string $update_timestamp, int $team_id) {
 		$db = $this->connection;
 
 		$sql = 
@@ -23,7 +23,7 @@ class LocationUpdateStore extends DatabaseController {
 			VALUES (?, ?, ?, ?, ?)";
 
 		$statement = $db->prepare($sql);
-		$statement->bind_param("ssssi", $latitude, $longitude, $update_message, $update_timestamp, $team_id);
+		$statement->bind_param("ddssi", $latitude, $longitude, $update_message, $update_timestamp, $team_id);
 
 		$statement->execute();
 		$result = $statement->get_result();
