@@ -84,7 +84,7 @@ map.on('click', (e) => {
 
 /****** Display location on map ******/
 
-const showLocationOnMap = () => {
+const showLocationOnMap = (animate = false) => {
   const latitude = document.querySelector('#latitude').value;
   const longitude = document.querySelector('#longitude').value;
 
@@ -95,10 +95,14 @@ const showLocationOnMap = () => {
 
   removeAllMarkers();
   new L.marker([latitude, longitude]).addTo(map);
-  map.flyTo([latitude, longitude], 17);
+  if (animate) {
+    map.flyTo([latitude, longitude], 17);
+  } else {
+    map.setView([latitude, longitude], 17);
+  }
 }
 
 document.querySelector('.view-on-map').addEventListener('click', async (e) => {
   e.preventDefault();
-  showLocationOnMap();
+  showLocationOnMap(true);
 });
