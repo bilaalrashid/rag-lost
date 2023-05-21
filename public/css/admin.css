@@ -47,3 +47,17 @@ form .form-row input {
   color: red;
   font-weight: 600;
 }
+
+.split-column-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.split-column {
+  width: 50%;
+}
+
+.split-column #map {
+  width: 100%;
+  height: calc(100vh - 140px);
+}
