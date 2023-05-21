@@ -13,3 +13,41 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.control.zoom({
   position: 'bottomleft'
 }).addTo(map);
+
+/**
+ * Performs a geocode lookup, converting a human-readable search query to coordinates.
+ *
+ * NOTE: Fair use limits apply to this community hosted version of Nominatim, so please don't use heavily.
+ * See https://operations.osmfoundation.org/policies/nominatim/
+ *
+ * @param {query} string The search query to lookup
+ */
+const geocode = async (query) => {
+  const response = await fetch(`https://nominatim.openstreetmap.org/search/${query}?format=jsonv2&countrycodes=gb`)
+
+  if (!response.ok) {
+    return [];
+  }
+
+  const data = await response.json()
+  return data
+}
+
+document.querySelector('.map-search').addEventListener('keydown', async (e) => {
+  if (e.key == "Enter") {
+    const query = document.querySelector('.map-search').value;
+    if (!query || query.length < 4) {
+      alert("Please a longer search query.");
+      return;
+    }
+
+    const result = await geocode(query);
+    if (result && result.length > 0) {
+      const firstResult = result[0];
+      const { lat, lon } = firstResult;
+      map.flyTo([lat, lon]);
+    } else {
+      alert("No search results found.");
+    }
+  }
+});
