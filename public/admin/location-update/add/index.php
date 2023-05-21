@@ -23,14 +23,10 @@
 								<input type="text" name="update_message" placeholder="Some text here..." id="update_message">
 							</div>
 							<div class="form-row">
-								<label for="latitude">Latitude</label>
+								<label for="latitude">Coordinates</label>
 								<span>Fill by selecting a location on the map</span>
-								<input type="number" step="any" name="latitude" placeholder="A coordinate here..." id="latitude" required>
-							</div>
-							<div class="form-row">
-								<label for="longitude">Longitude</label>
-								<span>Fill by selecting a location on the map</span>
-								<input type="number" step="any" name="longitude" placeholder="A coordinate here..." id="longitude" required>
+								<input type="number" step="any" name="latitude" placeholder="Latitude" id="latitude" required>
+								<input type="number" step="any" name="longitude" placeholder="Longitude" id="longitude" required>
 							</div>
 							<button type="submit">Add Update</button>
 						</form>
