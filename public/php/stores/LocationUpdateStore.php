@@ -42,7 +42,8 @@ class LocationUpdateStore extends DatabaseController {
 		$sql = 
     "SELECT id 
       FROM location_update
-      WHERE team_id = ?";
+      WHERE team_id = ?
+			ORDER BY update_timestamp DESC";
 		
 		$statement = $db->prepare($sql);
     $statement->bind_param("i", $team_id);
