@@ -3,6 +3,10 @@ body {
   margin: 16px;
 }
 
+a {
+  color: rgb(213, 40, 42);
+}
+
 header {
   display: flex;
   justify-content: space-between;
