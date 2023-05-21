@@ -22,11 +22,11 @@
 				<div>
 					<h1>General Settings</h1>
 					<p>You probably won't have to touch this when the event is actually running, except to update the fundraised total that is displayed on the map.</p>
-					<a href="/admin/config">Edit Settings Here</a>
+					<a href="/admin/config" class="link-button">Edit Settings Here</a>
 				</div>
 				<div>
 					<h1>Teams</h1>
-					<p><a href="/admin/team/add">Create Team</a></p>
+					<p><a href="/admin/team/add" class="link-button">Create Team</a></p>
 					<hr />
 					<?php 
 						if (empty($model)) {
@@ -37,7 +37,7 @@
 							<div>
 								<h3><?php echo $team->getTeamName(); ?></h3>
 								<p><?php echo $team->getMembers(); ?></p>
-								<p><a href="/admin/team/edit?id=<?php echo $team->getID(); ?>">Edit Details</a> | <a href="/admin/location-update/view?teamID=<?php echo $team->getID(); ?>">Location Updates</a></p>
+								<p><a href="/admin/team/edit?id=<?php echo $team->getID(); ?>" class="link-button">Edit Details</a> | <a href="/admin/location-update/view?teamID=<?php echo $team->getID(); ?>" class="link-button">Location Updates</a></p>
 							</div>
 							<hr />
 					<?php

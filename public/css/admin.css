@@ -68,6 +68,24 @@ form button:hover {
   color: white;
 }
 
+a.link-button {
+  padding: 8px 12px;
+  background-color: white;
+  color: var(--rag-red-color);
+  border: 1px solid var(--rag-red-color);
+  border-radius: 12px;
+  font-size: 15px;
+  transition: 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.link-button:hover {
+  background-color: var(--rag-red-color);
+  color: white;
+}
+
 .error {
   color: red;
   font-weight: 600;
