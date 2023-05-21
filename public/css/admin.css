@@ -61,7 +61,7 @@ form .form-row input {
   position: relative;
 }
 
-.map-container input {
+.map-container .map-search {
   position: absolute;
   top: 0;
   left: 0;

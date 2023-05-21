@@ -42,7 +42,7 @@
 					</div>
 					<div class="split-column">
 						<div class="map-container">
-							<input type="text" placeholder="Search" />
+							<input type="text" placeholder="Search" class="map-search" />
 							<div id="map"></div>
 						</div>
 					</div>
