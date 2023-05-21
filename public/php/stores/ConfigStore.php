@@ -15,7 +15,7 @@ class ConfigStore extends DatabaseController {
 	 * @param  float   $donation_total            [The total amount of money raised]
 	 * @param  string  $donate_url                [The URL of the donation page]
 	 */
-	public function editConfig(DateTime $countdown_start, float $start_location_latitude, float $start_location_longitude, float $donation_total, string $donate_url) {
+	public function editConfig(DateTimeInterface $countdown_start, float $start_location_latitude, float $start_location_longitude, float $donation_total, string $donate_url) {
 		$db = $this->connection;
 
 		$sql = 
@@ -54,12 +54,12 @@ class ConfigStore extends DatabaseController {
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
 
-			$team = new Team($row["id"], $row["countdown_start"], $row["start_location_latitude"], $row["start_location_longitude"], $row["donation_total"], $row["donate_url"]);
+			$config = new Config(date_create_immutable_from_format("Y-m-d H:i:s", $row["countdown_start"]), $row["start_location_latitude"], $row["start_location_longitude"], $row["donation_total"], $row["donate_url"]);
 		}
 
 		$statement->close();
 
-		return $team;
+		return $config;
 	}
 
 }
