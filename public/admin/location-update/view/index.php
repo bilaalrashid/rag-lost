@@ -13,8 +13,25 @@
 		<section>
 			<div class="wrapper">
 			<p><a href="/admin">Home</a> > Location Updates</p>
-        <h1>Location Updates</h1>
+        <h1>Location Updates • <?php echo $get[0]->getTeamName(); ?></h1>
         <p><a href="/admin/location-update/add?teamID=<?php echo $_GET["teamID"]; ?>">Add New Update</a></p>
+				<hr />
+				<?php 
+						if (empty($get[1])) {
+							echo "<p>No updates for that team so far :(</p>";
+						} else {
+							foreach ($get[1] as $update) {
+					?>
+							<div>
+								<h3><?php echo $update->getUpdateTimestamp()->format("H:i, d/m/Y"); ?></h3>
+								<p><?php echo $update->getUpdateMessage(); ?></p>
+								<p><?php echo $update->getLatitude(); ?>, <?php echo $update->getLongitude(); ?></p>
+							</div>
+							<hr />
+					<?php
+							}
+						} 
+					?>
 			</div>
 		</section>
 	</body>
