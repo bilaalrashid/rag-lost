@@ -3,8 +3,6 @@
 class TeamsApiController {
 	
 	public function main() {
-		// $data = [];
-
 		$store = new TeamStore();
 		$teams = $store->getAllTeams();
 
