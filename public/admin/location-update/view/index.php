@@ -18,7 +18,7 @@
 				<hr />
 				<?php 
 					if (empty($get[1])) {
-						echo "<p>No updates for that team so far :(</p>";
+						echo "<p>No updates for this team so far :(</p>";
 					} else {
 						foreach ($get[1] as $update) {
 				?>
