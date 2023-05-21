@@ -31,6 +31,32 @@ class LocationUpdateStore extends DatabaseController {
 	}
 
 	/**
+	 * Edits a location update in the database.
+   * 
+	 * @param  int                $id                [The ID of the update to edit]
+   * @param  float              $latitude          [The updated latitude]
+   * @param  float              $longitude         [The update longitude]
+   * @param  string             $update_message    [A message to display with the update]
+	 * @param  DateTimeInterface  $update_timestamp  [The name of the team]
+	 */
+	public function editUpdate(int $id, float $latitude, float $longitude, string $update_message, DateTimeInterface $update_timestamp) {
+		$db = $this->connection;
+
+		$sql = 
+    "UPDATE location_update 
+			SET latitude = ?, longitude = ?, update_message = ?, update_timestamp = ? 
+			WHERE id = ?";
+
+		$statement = $db->prepare($sql);
+		$statement->bind_param("ssssi", $latitude, $longitude, $update_message, $update_timestamp->format("Y-m-d H:i:s"), $id);
+
+		$statement->execute();
+		$result = $statement->get_result();
+
+		$statement->close();
+	}
+
+	/**
 	 * Gets all location updates from the database.
    * 
    * @param  int     $team_id  [The ID of the team to get updates for]
