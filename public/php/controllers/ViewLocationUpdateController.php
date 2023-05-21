@@ -11,7 +11,19 @@ class ViewLocationUpdateController {
 	}
 
 	public function get() {
-		return null;
+		$team_id = $_GET["teamID"];
+
+		if (!empty($team_id)) {
+			$location_update_store = new LocationUpdateStore();
+			$updates = $location_update_store->getAllUpdatesForTeam($team_id);
+
+			$team_store = new TeamStore();
+			$team = $team_store->getTeamFromID($team_id);
+
+			return [$team, $updates];
+		}
+
+		return false;
 	}
 
 }

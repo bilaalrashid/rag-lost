@@ -90,7 +90,7 @@ class LocationUpdateStore extends DatabaseController {
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
 
-			$update = new LocationUpdate($row["id"], $row["latitude"], $row["longitude"], $row["update_message"], $row["update_timestamp"], $row["team_id"]);
+			$update = new LocationUpdate($row["id"], $row["latitude"], $row["longitude"], $row["update_message"], date_create_from_format("Y-m-d H:i:s", $row["update_timestamp"]), $row["team_id"]);
 		}
 
 		$statement->close();
