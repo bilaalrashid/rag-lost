@@ -9,7 +9,19 @@ class EditConfigController {
 	}
 
 	public function post() {
-		return null;
+    $countdown_start = date_create_immutable_from_format("Y-m-d*H:i", $_POST["countdown_start"]);
+    $start_location_latitude = $_POST["latitude"];
+    $start_location_longitude = $_POST["longitude"];
+    $donation_total = $_POST["donation_total"];
+    $donate_url = $_POST["donate_url"];
+
+    if (isset($countdown_start) && isset($start_location_latitude) && isset($start_location_longitude)) {
+      $store = new ConfigStore();
+      $store->editConfig($countdown_start, $start_location_latitude, $start_location_longitude, $donation_total, $donate_url ?: '');
+      return true;
+    }
+
+		return false;
 	}
 
 	public function get() {

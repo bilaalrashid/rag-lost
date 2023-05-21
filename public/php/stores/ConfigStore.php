@@ -23,7 +23,8 @@ class ConfigStore extends DatabaseController {
 			SET countdown_start = ?, start_location_latitude = ?, start_location_longitude = ?, donation_total = ?, donate_url = ?";
 
 		$statement = $db->prepare($sql);
-		$statement->bind_param("sddds", $countdown_start, $start_location_latitude, $start_location_longitude, $donation_total, $donate_url);
+		$formatted_countdown_start = $countdown_start->format("Y-m-d H:i:s");
+		$statement->bind_param("sddds", $formatted_countdown_start, $start_location_latitude, $start_location_longitude, $donation_total, $donate_url);
 
 		$statement->execute();
 		$result = $statement->get_result();
