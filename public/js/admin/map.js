@@ -36,7 +36,7 @@ const geocode = async (query) => {
 document.querySelector('.map-search').addEventListener('keydown', async (e) => {
   if (e.key == "Enter") {
     const query = document.querySelector('.map-search').value;
-    
+
     if (!query || query.length < 4) {
       alert("Please a longer search query.");
       return;
@@ -45,9 +45,18 @@ document.querySelector('.map-search').addEventListener('keydown', async (e) => {
     const result = await geocode(query);
 
     if (result && result.length > 0) {
+      console.log(result);
       const firstResult = result[0];
-      const { lat, lon } = firstResult;
-      map.flyTo([lat, lon]);
+
+      if (firstResult.boundingbox && firstResult.boundingbox.length >= 4) {
+        map.fitBounds([
+          [firstResult.boundingbox[0], firstResult.boundingbox[2]],
+          [firstResult.boundingbox[1], firstResult.boundingbox[3]]
+        ]);
+      } else {
+        const { lat, lon } = firstResult;
+        map.flyTo([lat, lon]);
+      }
     } else {
       alert("No search results found.");
     }
