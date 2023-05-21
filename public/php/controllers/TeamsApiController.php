@@ -30,14 +30,19 @@ class TeamsApiController {
 	}
 
 	private function formatTeamsData($team) {
-		$store = new LocationUpdateStore();
-		$locationUpdates = $store->getAllUpdatesForTeam($team->getID());
+		$config_store = new ConfigStore();
+		$config = $config_store->getConfig();
+
+		$location_update_store = new LocationUpdateStore();
+		$locationUpdates = $location_update_store->getAllUpdatesForTeam($team->getID());
 		$updates = [];
+
 		foreach ($locationUpdates as $update) {
 			array_push($updates, array(
 				"latitude" => $update->getLatitude(),
 				"longitude" => $update->getLongitude(),
 				"message" => $update->getUpdateMessage(),
+				"distanceKm" => CoordinateUtils::distance($update->getLatitude(), $update->getLongitude(), $config->getStartLocationLatitude(), $config->getStartLocationLongitude(), "K"),
 				"timestamp" => $update->getUpdateTimestamp()->format(DateTime::ATOM),
 			));
 		}
