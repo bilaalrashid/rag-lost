@@ -49,7 +49,7 @@ class Team {
    * @return string [The name of the team]
    */
   public function getTeamName(): string {
-    return $this->team_name;
+    return htmlspecialchars($this->team_name);
   }
 
   /**
@@ -57,7 +57,7 @@ class Team {
    * @return string [A summary of all the team members]
    */
   public function getMembers(): string {
-    return $this->members;
+    return htmlspecialchars($this->members);
   }
 
   /**
@@ -65,7 +65,7 @@ class Team {
    * @return string [A description of the team]
    */
   public function getTeamDescription(): string {
-    return $this->team_description;
+    return htmlspecialchars($this->team_description);
   }
 
   /**
@@ -73,7 +73,7 @@ class Team {
    * @return string [The URL to donate directly to the team]
    */
   public function getDonateURL(): string {
-    return $this->donate_url;
+    return htmlspecialchars($this->donate_url);
   }
 
   /**
@@ -81,7 +81,7 @@ class Team {
    * @return string [The URL of the pin to display on the map for the team]
    */
   public function getPinURL(): string {
-    return $this->pin_url;
+    return htmlspecialchars($this->pin_url);
   }
 
   /**
@@ -89,7 +89,7 @@ class Team {
    * @return string [The URL of the team image]
    */
   public function getTeamImageURL(): string {
-    return $this->team_image_url;
+    return htmlspecialchars($this->team_image_url);
   }
 
   /**
@@ -97,7 +97,7 @@ class Team {
    * @return string [The color of the team]
    */
   public function getTeamColor(): string {
-    return $this->team_color;
+    return htmlspecialchars($this->team_color);
   }
 
 }

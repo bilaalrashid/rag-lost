@@ -64,7 +64,7 @@ class Config {
 	 * @return string [The URL of the donation page]
 	 */
 	public function getDonateUrl(): ?string {
-		return $this->donate_url;
+		return $this->donate_url ? htmlspecialchars($this->donate_url) : null;
 	}
 
 }

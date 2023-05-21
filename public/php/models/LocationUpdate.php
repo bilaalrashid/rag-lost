@@ -59,7 +59,7 @@ class LocationUpdate {
    * @return string [The message of the location update]
    */
   public function getUpdateMessage(): string {
-    return $this->update_message;
+    return htmlspecialchars($this->update_message);
   }
 
   /**
