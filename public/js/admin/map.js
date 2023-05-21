@@ -62,3 +62,18 @@ document.querySelector('.map-search').addEventListener('keydown', async (e) => {
     }
   }
 });
+
+const removeAllMarkers = () => {
+  map.eachLayer(function(layer) {
+    if (layer instanceof L.Marker) {
+      map.removeLayer(layer)
+    }
+  })
+}
+
+map.on('click', (e) => {
+  removeAllMarkers();
+  new L.marker(e.latlng).addTo(map);
+  document.querySelector('#latitude').value = e.latlng.lat;
+  document.querySelector('#longitude').value = e.latlng.lng;
+});
