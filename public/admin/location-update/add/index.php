@@ -24,7 +24,7 @@
 							</div>
 							<div class="form-row">
 								<label for="latitude">Coordinates</label>
-								<span>Fill by selecting a location on the map</span>
+								<span>Fill by selecting a location on the map. <a href="javascript:void(0)" class="view-on-map">(View on map)</a></span>
 								<input type="number" step="any" name="latitude" placeholder="Latitude" id="latitude" required>
 								<input type="number" step="any" name="longitude" placeholder="Longitude" id="longitude" required>
 							</div>

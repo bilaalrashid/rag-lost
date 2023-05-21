@@ -14,6 +14,8 @@ L.control.zoom({
   position: 'bottomleft'
 }).addTo(map);
 
+/****** Map search ******/
+
 /**
  * Performs a geocode lookup, converting a human-readable search query to coordinates.
  *
@@ -63,6 +65,8 @@ document.querySelector('.map-search').addEventListener('keydown', async (e) => {
   }
 });
 
+/****** Select location on map ******/
+
 const removeAllMarkers = () => {
   map.eachLayer(function(layer) {
     if (layer instanceof L.Marker) {
@@ -76,4 +80,22 @@ map.on('click', (e) => {
   new L.marker(e.latlng).addTo(map);
   document.querySelector('#latitude').value = e.latlng.lat;
   document.querySelector('#longitude').value = e.latlng.lng;
+});
+
+/****** Display location on map ******/
+
+document.querySelector('.view-on-map').addEventListener('click', async (e) => {
+  e.preventDefault();
+
+  const latitude = document.querySelector('#latitude').value;
+  const longitude = document.querySelector('#longitude').value;
+
+  if (!latitude || !longitude) {
+    alert("Please enter a latitude and longitude.");
+    return;
+  }
+
+  removeAllMarkers();
+  new L.marker([latitude, longitude]).addTo(map);
+  map.flyTo([latitude, longitude], 17);
 });
