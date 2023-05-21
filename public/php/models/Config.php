@@ -24,6 +24,7 @@ class Config {
 		$this->start_location_latitude = $start_location_latitude;
 		$this->start_location_longitude = $start_location_longitude;
 		$this->donation_total = $donation_total;
+		$this->donate_url = $donate_url;
 	}
 
 	/**
