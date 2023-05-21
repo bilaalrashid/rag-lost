@@ -36,7 +36,7 @@
 							</div>
 							<div class="form-row">
 								<label for="donate_url">Donate URL</label>
-								<span>Optional. This is URL that is displayed at the top of the map tracker for people to donate to</span>
+								<span>Optional. This is the main URL to donate to, which will be displayed at the top of the map tracker</span>
 								<input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" value="<?php echo $model->getDonateUrl(); ?>">
 							</div>
 							<button type="submit">Save</button>
