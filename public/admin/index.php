@@ -26,6 +26,7 @@
 				</div>
 				<div>
 					<h1>Teams</h1>
+					<p>This is where you can create, edit and delete teams. During the event you will mainly use this to add location updates to each team.</p>
 					<p><a href="/admin/team/add" class="link-button">Create Team</a></p>
 					<hr />
 					<?php 
