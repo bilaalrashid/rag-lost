@@ -123,3 +123,13 @@ a.link-button:hover {
   height: calc(100vh - 140px);
   z-index: 1;
 }
+
+details {
+  margin: 16px 0;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--rag-red-color);
+}
