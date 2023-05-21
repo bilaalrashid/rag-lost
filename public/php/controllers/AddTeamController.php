@@ -17,7 +17,7 @@ class AddTeamController {
 
 		if (!empty($team_name) && !empty($donate_url)) {
 			$store = new TeamStore();
-			$store->addTeam($team_name, $members ?: '', $description ?: '', $pin_url, $donate_url, $team_image_url ?: '', $team_color);
+			$store->addTeam($team_name, $members ?: '', $description ?: '', $donate_url, $pin_url, $team_image_url ?: '', $team_color);
 
 			$host = $_SERVER["HTTP_HOST"];
 			header("Location: http://{$host}/admin/");
