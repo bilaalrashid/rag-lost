@@ -37,7 +37,7 @@
 							<div>
 								<h3><?php echo $team->getTeamName(); ?></h3>
 								<p><?php echo $team->getMembers(); ?></p>
-								<p><a href="/team/edit">Edit Details</a> | <a href="/team/location-update">Update Location</a></p>
+								<p><a href="/admin/team/edit?id=<?php echo $team->getID(); ?>">Edit Details</a> | <a href="/team/location-update">Update Location</a></p>
 							</div>
 							<hr />
 					<?php
