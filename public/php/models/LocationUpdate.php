@@ -21,7 +21,7 @@ class LocationUpdate {
    * @param string $update_timestamp  [The timestamp of the location update]
    * @param int    $team_id           [The ID of the team that the location update belongs to]
 	 */
-	public function __construct(int $id, float $latitude, float $longitude, string $update_message, DateTime $update_timestamp, int $team_id) {
+	public function __construct(int $id, float $latitude, float $longitude, string $update_message, DateTimeInterface $update_timestamp, int $team_id) {
     $this->id = $id;
     $this->latitude = $latitude;
     $this->longitude = $longitude;
@@ -66,7 +66,7 @@ class LocationUpdate {
    * Gets the timestamp of the location update
    * @return string [The timestamp of the location update]
    */
-  public function getUpdateTimestamp(): DateTime {
+  public function getUpdateTimestamp(): DateTimeInterface {
     return $this->update_timestamp;
   }
 
