@@ -3,7 +3,9 @@
 class EditConfigController {
 	
 	public function main() {
-		return null;
+    $store = new ConfigStore();
+    $config = $store->getConfig();
+		return $config;
 	}
 
 	public function post() {

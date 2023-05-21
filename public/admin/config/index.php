@@ -21,23 +21,23 @@
               <div class="form-row">
 								<label for="latitude">Start Location Coordinates</label>
 								<span>This is where the start location is. Fill by selecting a location on the map. <a href="javascript:void(0)" class="view-on-map">(View on map)</a></span>
-								<input type="number" step="any" name="latitude" placeholder="Latitude" id="latitude" required>
-								<input type="number" step="any" name="longitude" placeholder="Longitude" id="longitude" required>
+								<input type="number" step="any" name="latitude" placeholder="Latitude" id="latitude" value="<?php echo $model->getStartLocationLatitude() ?>" required>
+								<input type="number" step="any" name="longitude" placeholder="Longitude" id="longitude" value="<?php echo $model->getStartLocationLongitude() ?>" required>
 							</div>
 							<div class="form-row">
 								<label for="countdown_start">Countdown Start Time</label>
 								<span>This is the time that the countdown on the map tracker should start counting down from (if you aren't sure yet, you can retroactively update this)</span>
-								<input type="datetime-local" name="countdown_start" id="countdown_start" required>
+								<input type="datetime-local" name="countdown_start" id="countdown_start" value="<?php echo $model->getCountdownStart()->format("Y-m-d H:i"); ?>" required>
 							</div>
 							<div class="form-row">
 								<label for="donation_total">Donation Total</label>
 								<span>Optional. This is the rolling donation total that is displayed on the map tracker</span>
-								<input type="number" step="any" name="donation_total" placeholder="A number here..." id="donation_total">
+								<input type="number" step="any" name="donation_total" placeholder="A number here..." id="donation_total" value="<?php echo $model->getDonationTotal(); ?>">
 							</div>
 							<div class="form-row">
 								<label for="donate_url">Donate URL</label>
 								<span>Optional. This is URL that is displayed at the top of the map tracker for people to donate to</span>
-								<input type="url" name="donate_url" placeholder="A URL here..." id="donate_url">
+								<input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" value="<?php echo $model->getDonateUrl(); ?>">
 							</div>
 							<button type="submit">Save</button>
 						</form>
