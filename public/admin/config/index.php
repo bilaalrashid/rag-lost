@@ -31,7 +31,7 @@
 							</div>
 							<div class="form-row">
 								<label for="donation_total">Donation Total</label>
-								<span>Optional. This is the rolling donation total that is displayed on the map tracker</span>
+								<span>Optional. This is the rolling donation total that is displayed on the map tracker. In £ please.</span>
 								<input type="number" step="any" name="donation_total" placeholder="A number here..." id="donation_total" value="<?php echo $model->getDonationTotal(); ?>">
 							</div>
 							<div class="form-row">
