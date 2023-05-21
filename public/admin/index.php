@@ -35,7 +35,7 @@
 							foreach ($model as $team) {
 					?>
 							<div>
-								<h3><?php echo $team->getTeamName(); ?></h3>
+								<h2><?php echo $team->getTeamName(); ?></h2>
 								<p><?php echo $team->getMembers(); ?></p>
 								<p><a href="/admin/team/edit?id=<?php echo $team->getID(); ?>" class="link-button">Edit Details</a> | <a href="/admin/location-update/view?teamID=<?php echo $team->getID(); ?>" class="link-button">Location Updates</a></p>
 							</div>

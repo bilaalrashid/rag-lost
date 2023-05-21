@@ -23,7 +23,7 @@
 						foreach ($get[1] as $update) {
 				?>
 					<div>
-						<h3><?php echo $update->getUpdateTimestamp()->format("H:i, d/m/Y"); ?></h3>
+						<h2><?php echo $update->getUpdateTimestamp()->format("H:i, d/m/Y"); ?></h2>
 						<p><?php echo $update->getUpdateMessage(); ?></p>
 						<p><?php echo $update->getLatitude(); ?>, <?php echo $update->getLongitude(); ?></p>
 						<p><a href="/admin/location-update/edit?id=<?php echo $update->getID(); ?>&teamID=<?php echo $_GET["teamID"]; ?>" class="link-button">Edit</a></p>
