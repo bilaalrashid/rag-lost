@@ -30,14 +30,6 @@ class LocationUpdate {
     $this->team_id = $team_id;
 	}
 
-	/**
-	 * Gets the countdown start date
-	 * @return DateTime [The time that the countdown should start from]
-	 */
-	public function getCountdownStart(): DateTime {
-		return $this->countdown_start;
-	}
-
   /**
    * Gets the ID of the location update
    * @return int [The ID of the location update]
