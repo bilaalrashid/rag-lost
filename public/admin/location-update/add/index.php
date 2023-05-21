@@ -41,7 +41,10 @@
 						<?php } ?>
 					</div>
 					<div class="split-column">
-						<div id="map"></div>
+						<div class="map-container">
+							<input type="text" placeholder="Search" />
+							<div id="map"></div>
+						</div>
 					</div>
 				</div>
 			</div>
