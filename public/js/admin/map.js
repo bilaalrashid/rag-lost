@@ -36,12 +36,14 @@ const geocode = async (query) => {
 document.querySelector('.map-search').addEventListener('keydown', async (e) => {
   if (e.key == "Enter") {
     const query = document.querySelector('.map-search').value;
+    
     if (!query || query.length < 4) {
       alert("Please a longer search query.");
       return;
     }
 
     const result = await geocode(query);
+
     if (result && result.length > 0) {
       const firstResult = result[0];
       const { lat, lon } = firstResult;
