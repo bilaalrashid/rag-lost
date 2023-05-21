@@ -41,6 +41,18 @@
 							<p>Error. Basically you've inputted something wrong here or missed an item (or you have failed at hacking us - in which case, ha!)</p>
 						</div>
 						<?php } ?>
+            <details>
+              <summary>Delete</summary>
+              <form method="POST" action="/admin/location-update/delete/index.php">
+                <input type="hidden" name="id" value="<?php echo $model->getID(); ?>">
+                <input type="hidden" name="team_id" value="<?php echo $_GET["teamID"]; ?>">
+                <div class="form-row">
+                  <label for="confirm_delete">Confirm Delete</label>
+                  <span>If you are sure that you want to do this, click "Delete" below</span>
+                  <button type="submit">Delete</button>
+							  </div>
+              </form>
+            </details>
 					</div>
 					<div class="split-column">
 						<div class="map-container">
