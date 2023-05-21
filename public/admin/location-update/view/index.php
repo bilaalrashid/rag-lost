@@ -13,7 +13,7 @@
 		<section>
 			<div class="wrapper">
 			<p><a href="/admin">Home</a> > Location Updates</p>
-        <h1>Location Updates • <?php echo $get[0]->getTeamName(); ?></h1>
+        <h1>Location Updates &#8226; <?php echo $get[0]->getTeamName(); ?></h1>
         <p><a href="/admin/location-update/add?teamID=<?php echo $_GET["teamID"]; ?>">Add New Update</a></p>
 				<hr />
 				<?php 
