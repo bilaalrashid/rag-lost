@@ -7,7 +7,23 @@ class AddLocationUpdateController {
 	}
 
 	public function post() {
-		return null;
+		$team_id = $_GET["teamID"];
+		$latitude = $_POST["latitude"];
+		$longitude = $_POST["longitude"];
+		$update_message = $_POST["update_message"];
+
+		if (!empty($team_id) && !empty($latitude) && !empty($longitude)) {
+			$store = new LocationUpdateStore();
+			$store->addUpdate($latitude, $longitude, $update_message ?: '', $team_id);
+
+			$host = $_SERVER["HTTP_HOST"];
+			header("Location: http://{$host}/admin/location-update/view/?teamID={$team_id}");
+			exit();
+
+			return true;
+		}
+
+		return false;
 	}
 
 	public function get() {
