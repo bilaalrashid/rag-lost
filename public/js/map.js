@@ -24,7 +24,7 @@ const removeAllMarkers = () => {
 }
 
 const fetchData = async () => {
-  const response = await fetch('/api/teams.json');
+  const response = await fetch('/api/teams.php');
   const json = await response.json();
   return json;
 }
@@ -35,7 +35,8 @@ const updateMap = (data) => {
   removeAllMarkers();
 
   data.teams.forEach(team => {
-    const marker = L.marker([team.coordinate.latitude, team.coordinate.longitude]).addTo(map);
+    const currentLocation = team.updates[0];
+    const marker = L.marker([currentLocation.latitude, currentLocation.longitude]).addTo(map);
     const popupContents = `
       <div class="map-popup">
         <h2>${team.name}</h2>
