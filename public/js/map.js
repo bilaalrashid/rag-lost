@@ -116,7 +116,7 @@ const updateSidebar = (data) => {
 
       const message = document.createElement('p');
       message.classList.add('message');
-      message.innerText = update.message;
+      message.innerText = `"${update.message}"`;
       updateDiv.appendChild(message);
 
       details.appendChild(updateDiv);

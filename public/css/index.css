@@ -173,5 +173,6 @@ a {
 
 .sidebar .team-details .message {
   font-size: 14px;
+  font-style: italic !important;
   margin: 0;
 }
