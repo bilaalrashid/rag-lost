@@ -19,11 +19,12 @@ class EditLocationUpdateController {
 		$latitude = $_POST["latitude"];
 		$longitude = $_POST["longitude"];
 		$update_message = $_POST["update_message"];
+    $location_name = $_POST["location_name"];
     $update_timestamp = date_create_immutable_from_format("Y-m-d*H:i", $_POST["update_timestamp"]);
 
-    if (!empty($id) && !empty($team_id) && !empty($latitude) && !empty($longitude) && !empty($update_timestamp)) {
+    if (!empty($id) && !empty($team_id) && !empty($latitude) && !empty($longitude) && !empty($location_name) && !empty($update_timestamp)) {
       $store = new LocationUpdateStore();
-      $store->editUpdate($id, $latitude, $longitude, $update_message ?: '', $update_timestamp);
+      $store->editUpdate($id, $latitude, $longitude, $update_message ?: '', $location_name, $update_timestamp);
 
       $host = $_SERVER["HTTP_HOST"];
       header("Location: http://{$host}/admin/location-update/view/?teamID={$team_id}");
