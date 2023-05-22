@@ -9,7 +9,6 @@ L.control.zoom({
 
 const getTimeFromDateString = (timestamp) => {
   const date = new Date(timestamp);
-  console.log(date);
   return `${date.getUTCHours().toLocaleString('en-gb', { minimumIntegerDigits: 2 })}:${date.getUTCMinutes().toLocaleString('en-gb', { minimumIntegerDigits: 2 })}`
 }
 
@@ -125,7 +124,6 @@ const updateSidebar = (data) => {
 
 const refreshData = async () => {
   const data = await fetchData();
-  console.log(data);
   updateMap(data);
   updateSidebar(data);
 }
