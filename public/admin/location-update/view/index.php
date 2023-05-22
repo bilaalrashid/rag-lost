@@ -14,6 +14,7 @@
 			<div class="wrapper">
 				<p><a href="/admin">Home</a> > Location Updates</p>
         <h1>Location Updates &#8226; <?php echo $get[0]->getTeamName(); ?></h1>
+				<p>Add and edit location updates for the team here. NOTE: You do NOT need to add the start location, that is already included for you on the tracker.</p>
         <p><a href="/admin/location-update/add?teamID=<?php echo $_GET["teamID"]; ?>" class="link-button">Add New Update</a></p>
 				<hr />
 				<?php 
