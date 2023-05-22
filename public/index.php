@@ -1,3 +1,9 @@
+<?php
+	set_include_path(__DIR__."/php/");
+	require_once "files/autoload.php";
+	$class = "TrackerController";
+	require_once "files/controller.php";
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,7 +18,7 @@
       <div class="main-banner">
         <img src="img/rag.png" alt="Southampton RAG Logo" class="logo">
         <div class="info">
-          <h1>RAG Lost • 13th June 2023</h1>
+          <h1>RAG Lost • <?php echo $model->getCountdownStart()->format("jS F o"); ?></h1>
           <p>12 hours to navigate back to Southampton from a mystery location</p>
           <p>Total Raised: <span class="donation-total"></span> | <a href="" target="_blank" class="donation-link"></a></p>
         </div>
