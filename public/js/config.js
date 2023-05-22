@@ -6,8 +6,6 @@ const fetchConfigData = async () => {
 
 const refreshConfigData = async () => {
   const data = await fetchConfigData();
-  console.log(data);
-  
 }
 
 refreshConfigData().catch();
