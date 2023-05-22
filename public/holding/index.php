@@ -18,7 +18,7 @@
       <img src="/img/rag.png" alt="Southampton RAG Logo" class="logo" />
       <h1>RAG Lost Map Tracker</h1>
       <h2>12 hours to navigate back to Southampton from a mystery location</h2>
-      <h3>Raising Money for Young Minds</h3>
+      <h3>Raising Money for <?php echo $model->getCharityName(); ?></h3>
       <h3>Event Starting Soon, Check Back Later</h3>
       <p class="donate-container">
         <a href="<?php echo $model->getDonateURL(); ?>" target="_blank" class="donate">Donate Online</a>
