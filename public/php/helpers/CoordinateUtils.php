@@ -44,4 +44,27 @@ class CoordinateUtils {
     }
   }
 
+  /**
+   * Performs a reverse geocode lookup, converting coordinates to a human-readable address.
+   *
+   * NOTE: Fair use limits apply to this community hosted version of Nominatim, so please don't use heavily.
+   * See https://operations.osmfoundation.org/policies/nominatim/
+   *
+   * @param {lat} number The latitude to reverse geocode
+   * @param {lng} number The longitude to reverse geocode
+   */
+  static function reverseGeocode($latitude, $longitude) {
+    $url = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=$latitude&lon=$longitude";
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // Make Nominatim happy - we need to identify ourselves so they don't block us
+    curl_setopt($ch, CURLOPT_USERAGENT, "Southampton RAG Lost - https://lost.susu.org");
+    curl_setopt($ch, CURLOPT_REFERER, 'https://lost.susu.org');
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    return $response;
+  }
+
 }
