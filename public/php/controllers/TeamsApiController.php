@@ -43,6 +43,7 @@ class TeamsApiController {
 				"longitude" => $update->getLongitude(),
 				"message" => $update->getUpdateMessage(),
 				"distanceKm" => CoordinateUtils::distance($update->getLatitude(), $update->getLongitude(), $config->getStartLocationLatitude(), $config->getStartLocationLongitude(), "K"),
+				"locationName" => $update->getLocationName(),
 				"timestamp" => $update->getUpdateTimestamp()->format(DateTime::ATOM),
 			));
 		}
