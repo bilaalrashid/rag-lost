@@ -1,6 +1,3 @@
-let startLocation;
-let endLocation;
-
 const fetchConfigData = async () => {
   const response = await fetch('/api/config.php');
   const json = await response.json();
