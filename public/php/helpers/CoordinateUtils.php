@@ -50,8 +50,8 @@ class CoordinateUtils {
    * NOTE: Fair use limits apply to this community hosted version of Nominatim, so please don't use heavily.
    * See https://operations.osmfoundation.org/policies/nominatim/
    *
-   * @param {lat} number The latitude to reverse geocode
-   * @param {lng} number The longitude to reverse geocode
+   * @param float $latitude   [The latitude to reverse geocode]
+   * @param float $longitude  [The longitude to reverse geocode]
    */
   static function reverseGeocode($latitude, $longitude) {
     $url = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=$latitude&lon=$longitude";
