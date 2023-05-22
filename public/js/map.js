@@ -15,6 +15,12 @@ L.control.zoom({
   position: 'bottomleft'
 }).addTo(map);
 
+const getTimeFromDateString = (timestamp) => {
+  const date = new Date(timestamp);
+  console.log(date);
+  return `${date.getUTCHours().toLocaleString('en-gb', { minimumIntegerDigits: 2 })}:${date.getUTCMinutes().toLocaleString('en-gb', { minimumIntegerDigits: 2 })}`
+}
+
 const removeAllMarkers = () => {
   map.eachLayer(function(layer) {
     if (layer instanceof L.Marker) {
@@ -30,8 +36,6 @@ const fetchData = async () => {
 }
 
 const updateMap = (data) => {
-  console.log(data);
-
   removeAllMarkers();
 
   data.teams.forEach(team => {
@@ -49,9 +53,82 @@ const updateMap = (data) => {
   });
 }
 
+const updateSidebar = (data) => {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.innerHTML = '';
+
+  data.teams.forEach(team => {
+    const currentLocation = team.updates[0];
+    
+    const teamDetails = document.createElement('div');
+    teamDetails.classList.add('team-details');
+
+    const table = document.createElement('table');
+    const row = document.createElement('tr');
+    const imageCell = document.createElement('td');
+    const image = document.createElement('img');
+    image.src = team.teamImageUrl;
+    imageCell.appendChild(image);
+    row.appendChild(imageCell);
+
+    const overviewCell = document.createElement('td');
+    const overviewContainer = document.createElement('div');
+    overviewContainer.classList.add('overview');
+    const name = document.createElement('h2');
+    name.innerText = team.name;
+    overviewContainer.appendChild(name);
+
+    const members = document.createElement('p');
+    members.classList.add('tagline');
+    members.innerText = team.members;
+    overviewContainer.appendChild(members);
+
+    const latestUpdate = document.createElement('p');
+    latestUpdate.classList.add('latest-update');
+    latestUpdate.innerText = `${getTimeFromDateString(currentLocation.timestamp)}, ${Math.round(currentLocation.distanceKm)}km, ${currentLocation.locationName}`;
+    overviewContainer.appendChild(latestUpdate);
+
+    overviewCell.appendChild(overviewContainer);
+    row.appendChild(overviewCell);
+    table.appendChild(row);
+    teamDetails.appendChild(table);
+
+    const details = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.innerText = 'View Full History';
+    details.appendChild(summary);
+
+    team.updates.forEach(update => {
+      const updateDiv = document.createElement('div');
+      updateDiv.classList.add('update');
+
+      const stats = document.createElement('p');
+      stats.classList.add('stats');
+      stats.innerText = `${getTimeFromDateString(update.timestamp)}, ${Math.round(update.distanceKm)}km, ${update.locationName}`;
+      updateDiv.appendChild(stats);
+
+      const message = document.createElement('p');
+      message.classList.add('message');
+      message.innerText = update.message;
+      updateDiv.appendChild(message);
+
+      details.appendChild(updateDiv);
+    });
+
+    teamDetails.appendChild(details);
+
+    sidebar.appendChild(teamDetails);
+
+    const separator = document.createElement('hr');
+    sidebar.appendChild(separator);
+  });
+}
+
 const refreshData = async () => {
   const data = await fetchData();
+  console.log(data);
   updateMap(data);
+  updateSidebar(data);
 }
 
 refreshData().catch();
