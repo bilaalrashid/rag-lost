@@ -10,6 +10,7 @@ class LocationUpdate {
   private $longitude;
   private $update_message;
   private $update_timestamp;
+  private $location_name;
   private $team_id;
 
 	/**
@@ -19,14 +20,16 @@ class LocationUpdate {
    * @param float  $longitude         [The longitude of the location update]
    * @param string $update_message    [The message of the location update]
    * @param string $update_timestamp  [The timestamp of the location update]
+   * @param string $location_name     [The name of the location for display]
    * @param int    $team_id           [The ID of the team that the location update belongs to]
 	 */
-	public function __construct(int $id, float $latitude, float $longitude, string $update_message, DateTimeInterface $update_timestamp, int $team_id) {
+	public function __construct(int $id, float $latitude, float $longitude, string $update_message, DateTimeInterface $update_timestamp, string $location_name, int $team_id) {
     $this->id = $id;
     $this->latitude = $latitude;
     $this->longitude = $longitude;
     $this->update_message = $update_message;
     $this->update_timestamp = $update_timestamp;
+    $this->location_name = $location_name;
     $this->team_id = $team_id;
 	}
 
@@ -68,6 +71,14 @@ class LocationUpdate {
    */
   public function getUpdateTimestamp(): DateTimeInterface {
     return $this->update_timestamp;
+  }
+
+  /**
+   * Gets the name of the location for display
+   * @return string [The name of the location for display]
+   */
+  public function getLocationName(): string {
+    return htmlspecialchars($this->location_name);
   }
 
   /**

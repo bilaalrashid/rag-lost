@@ -12,17 +12,18 @@ class LocationUpdateStore extends DatabaseController {
     * @param  float   $latitude          [The updated latitude]
     * @param  float   $longitude         [The update longitude]
     * @param  string  $update_message    [A message to display with the update]
+		* @param  string  $location_name     [The name of the location for display]
     * @param  int     $team_id           [The ID of the team that is update is for]
     */
-	public function addUpdate(float $latitude, float $longitude, string $update_message, int $team_id) {
+	public function addUpdate(float $latitude, float $longitude, string $update_message, string $location_name, int $team_id) {
 		$db = $this->connection;
 
 		$sql = 
-    "INSERT INTO location_update(latitude, longitude, update_message, update_timestamp, team_id) 
-			VALUES (?, ?, ?, NOW(), ?)";
+    "INSERT INTO location_update(latitude, longitude, update_message, update_timestamp, location_name, team_id) 
+			VALUES (?, ?, ?, NOW(), ?, ?)";
 
 		$statement = $db->prepare($sql);
-		$statement->bind_param("ddsi", $latitude, $longitude, $update_message, $team_id);
+		$statement->bind_param("ddssi", $latitude, $longitude, $update_message, $location_name, $team_id);
 
 		$statement->execute();
 		$result = $statement->get_result();
@@ -37,18 +38,19 @@ class LocationUpdateStore extends DatabaseController {
    * @param  float              $latitude          [The updated latitude]
    * @param  float              $longitude         [The update longitude]
    * @param  string             $update_message    [A message to display with the update]
+	 * @param  string             $location_name     [The name of the location for display]
 	 * @param  DateTimeInterface  $update_timestamp  [The name of the team]
 	 */
-	public function editUpdate(int $id, float $latitude, float $longitude, string $update_message, DateTimeInterface $update_timestamp) {
+	public function editUpdate(int $id, float $latitude, float $longitude, string $update_message, string $location_name, DateTimeInterface $update_timestamp) {
 		$db = $this->connection;
 
 		$sql = 
     "UPDATE location_update 
-			SET latitude = ?, longitude = ?, update_message = ?, update_timestamp = ? 
+			SET latitude = ?, longitude = ?, update_message = ?, update_timestamp = ?, location_name = ?
 			WHERE id = ?";
 
 		$statement = $db->prepare($sql);
-		$statement->bind_param("ssssi", $latitude, $longitude, $update_message, $update_timestamp->format("Y-m-d H:i:s"), $id);
+		$statement->bind_param("ddsssi", $latitude, $longitude, $update_message, $update_timestamp->format("Y-m-d H:i:s"), $location_name, $id);
 
 		$statement->execute();
 		$result = $statement->get_result();
@@ -117,7 +119,7 @@ class LocationUpdateStore extends DatabaseController {
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
 
-			$update = new LocationUpdate($row["id"], $row["latitude"], $row["longitude"], $row["update_message"], date_create_immutable_from_format("Y-m-d H:i:s", $row["update_timestamp"]), $row["team_id"]);
+			$update = new LocationUpdate($row["id"], $row["latitude"], $row["longitude"], $row["update_message"], date_create_immutable_from_format("Y-m-d H:i:s", $row["update_timestamp"]), $row["location_name"], $row["team_id"]);
 		}
 
 		$statement->close();
