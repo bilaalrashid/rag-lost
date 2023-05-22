@@ -1,3 +1,7 @@
+:root {
+  --rag-red-color: rgb(213, 40, 42);
+}
+
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -91,7 +95,7 @@ body {
 .sidebar .team-details img {
   width: 94px;
   border-radius: 100%;
-  border: 6px solid red;
+  border: 6px solid var(--rag-red-color);
   display: table-cell;
 }
 

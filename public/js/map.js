@@ -68,6 +68,7 @@ const updateSidebar = (data) => {
     const imageCell = document.createElement('td');
     const image = document.createElement('img');
     image.src = team.teamImageUrl;
+    image.style.borderColor = team.teamColor;
     imageCell.appendChild(image);
     row.appendChild(imageCell);
 
