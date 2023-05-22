@@ -23,7 +23,7 @@ const getTimeFromDateString = (timestamp) => {
 
 const removeAllMarkers = () => {
   map.eachLayer(function(layer) {
-    if (layer instanceof L.Marker) {
+    if (layer instanceof L.Marker || layer instanceof L.Polyline) {
       map.removeLayer(layer)
     }
   })
@@ -53,6 +53,9 @@ const updateMap = (data) => {
       </div>
     `;
     marker.bindPopup(popupContents);
+
+    const polylinePoints = team.updates.map(update => [update.latitude, update.longitude]);
+    L.polyline(polylinePoints, { color: team.teamColor, weight: 5 }).addTo(map);
   });
 }
 
