@@ -14,5 +14,5 @@ const updateDonationTotal = (data) => {
 
 const updateDonationLink = (data) => {
   document.querySelector('.donation-link').href = data.donateUrl;
-  document.querySelector('.donation-link').innerHTML = "Donate Online";
+  document.querySelector('.donation-link').innerHTML = "Donate to YoungMinds";
 }
