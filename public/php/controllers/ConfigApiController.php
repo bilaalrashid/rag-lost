@@ -7,17 +7,17 @@ class ConfigApiController {
 		$config = $store->getConfig();
 
 		$data = array(
-      "countdown_start" => $config->getCountdownStart()->format(DateTime::ATOM),
-      "start_location" => array(
+      "countdownStart" => $config->getCountdownStart()->format(DateTime::ATOM),
+      "startLocation" => array(
         "latitude" => $config->getStartLocationLatitude(),
         "longitude" => $config->getStartLocationLongitude(),
       ),
-      "end_location" => array(
+      "endLocation" => array(
         "latitude" => Constants::finish_latitude,
         "longitude" => Constants::finish_longitude,
       ),
-      "donation_total" => $config->getDonationTotal(),
-      "donate_url" => $config->getDonateURL(),
+      "donationTotal" => $config->getDonationTotal(),
+      "donateUrl" => $config->getDonateURL(),
     );
 
     header("Content-Type: application/json");
