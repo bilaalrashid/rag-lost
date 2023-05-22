@@ -13,8 +13,11 @@ class AddLocationUpdateController {
 		$update_message = $_POST["update_message"];
 
 		if (!empty($team_id) && !empty($latitude) && !empty($longitude)) {
+			$reverseGeocode = CoordinateUtils::reverseGeocode($latitude, $longitude);
+			$location_name = $reverseGeocode["address"]["city"] ?: $reverseGeocode["address"]["city_district"] ?: $reverseGeocode["address"]["village"] ?: $reverseGeocode["address"]["county"] ?: $reverseGeocode["address"]["state"];
+
 			$store = new LocationUpdateStore();
-			$store->addUpdate($latitude, $longitude, $update_message ?: '', $team_id);
+			$store->addUpdate($latitude, $longitude, $update_message ?: '', $location_name ?: '', $team_id);
 
 			$host = $_SERVER["HTTP_HOST"];
 			header("Location: http://{$host}/admin/location-update/view/?teamID={$team_id}");

@@ -64,7 +64,7 @@ class CoordinateUtils {
     $response = curl_exec($ch);
     curl_close($ch);
 
-    return $response;
+    return json_decode($response, true);
   }
 
 }
