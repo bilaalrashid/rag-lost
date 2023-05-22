@@ -18,6 +18,7 @@ class ConfigApiController {
       ),
       "donationTotal" => $config->getDonationTotal(),
       "donateUrl" => $config->getDonateURL(),
+      "charityName" => $config->getCharityName(),
     );
 
     header("Content-Type: application/json");
