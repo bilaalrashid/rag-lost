@@ -34,6 +34,11 @@
 								<input type="number" step="any" name="latitude" placeholder="Latitude" id="latitude" value="<?php echo $model->getLatitude(); ?>" required>
 								<input type="number" step="any" name="longitude" placeholder="Longitude" id="longitude" value="<?php echo $model->getLongitude(); ?>" required>
 							</div>
+							<div class="form-row">
+								<label for="location_name">Location Name</label>
+								<span>A short name to describe the location (this was auto-generated for you, but you can edit it here if you don't like it)</span>
+								<input type="text" name="location_name" placeholder="Some text here..." id="location_name" value="<?php echo $model->getLocationName(); ?>" required>
+							</div>
 							<button type="submit">Edit</button>
 						</form>
 						<?php if (isset($post) && !$post) { ?>
