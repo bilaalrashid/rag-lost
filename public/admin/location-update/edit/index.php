@@ -39,7 +39,7 @@
 								<span>A short name to describe the location (this was auto-generated for you, but you can edit it here if you don't like it)</span>
 								<input type="text" name="location_name" placeholder="Some text here..." id="location_name" value="<?php echo $model->getLocationName(); ?>" required>
 							</div>
-							<button type="submit">Edit</button>
+							<button type="submit">Save</button>
 						</form>
 						<?php if (isset($post) && !$post) { ?>
 						<div class="error">
