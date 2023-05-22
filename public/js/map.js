@@ -29,6 +29,9 @@ const fetchData = async () => {
 const updateMap = (data) => {
   removeAllMarkers();
 
+  addStartIcon();
+  addEndIcon();
+
   data.teams.forEach(team => {
     const currentLocation = team.updates[0];
     const marker = L.marker([currentLocation.latitude, currentLocation.longitude]).addTo(map);
