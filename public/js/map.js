@@ -43,10 +43,13 @@ const updateMap = (data) => {
     const marker = L.marker([currentLocation.latitude, currentLocation.longitude]).addTo(map);
     const popupContents = `
       <div class="map-popup">
+        <img src="${team.teamImageUrl}" style="border-color: ${team.teamColor}" />
         <h2>${team.name}</h2>
         <p class="members">${team.members}</p>
         <p class="description">${team.description}</p>
-        <p class="donate"><a href="${team.donateUrl}" target="_blank">Donate Online</a></p>
+        <p class="location-update">Last Seen: ${getTimeFromDateString(currentLocation.timestamp)}, ${Math.round(currentLocation.distanceKm)}km, ${currentLocation.locationName}</p>
+        <p class="location-update-message">"${currentLocation.message}"</p>
+        <p class="donate"><a href="${team.donateUrl}" target="_blank" style="background-color: ${team.teamColor}">Donate Online</a></p>
       </div>
     `;
     marker.bindPopup(popupContents);

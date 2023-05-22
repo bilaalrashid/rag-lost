@@ -19,14 +19,46 @@ body {
   text-align: center;
 }
 
+.map-popup img {
+  width: 94px;
+  border-radius: 100%;
+  border: 6px solid var(--rag-red-color);
+}
+
 .map-popup h2 {
-  margin: 0;
+  margin: 8px;
 }
 
 .map-popup .members {
   font-weight: 600;
   font-size: 15px;
-  margin-top: 8px;
+  margin: 8px;
+}
+
+.map-popup .description {
+  margin: 8px;
+}
+
+.map-popup .location-update {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.map-popup .location-update-message {
+  margin: 4px;
+  font-style: italic;
+}
+
+.map-popup p.donate {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.map-popup p.donate a {
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: white;
+  text-decoration: none;
 }
 
 .main-banner {
