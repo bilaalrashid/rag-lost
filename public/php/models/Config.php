@@ -10,6 +10,7 @@ class Config {
 	private $start_location_longitude;
 	private $donation_total;
 	private $donate_url;
+	private $charity_name;
 
 	/**
 	 * Constructor
@@ -18,13 +19,15 @@ class Config {
 	 * @param float             $start_location_longitude  [The longitude of the start location]
 	 * @param float             $donation_total            [The total amount of money raised]
 	 * @param string            $donate_url                [The URL of the donation page]
+	 * @param string            $charity_name              [The name of the charity fundraising for]
 	 */
-	public function __construct(DateTimeInterface $countdown_start, float $start_location_latitude, float $start_location_longitude, float $donation_total, string $donate_url) {
+	public function __construct(DateTimeInterface $countdown_start, float $start_location_latitude, float $start_location_longitude, float $donation_total, string $donate_url, string $charity_name) {
 		$this->countdown_start = $countdown_start;
 		$this->start_location_latitude = $start_location_latitude;
 		$this->start_location_longitude = $start_location_longitude;
 		$this->donation_total = $donation_total;
 		$this->donate_url = $donate_url;
+		$this->charity_name = $charity_name;
 	}
 
 	/**
@@ -65,6 +68,14 @@ class Config {
 	 */
 	public function getDonateUrl(): ?string {
 		return $this->donate_url ? htmlspecialchars($this->donate_url) : null;
+	}
+
+	/**
+	 * Gets the charity name
+	 * @return string [The name of the charity fundraising for]
+	 */
+	public function getCharityName() {
+		return htmlspecialchars($this->charity_name);
 	}
 
 }
