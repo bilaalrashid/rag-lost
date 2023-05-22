@@ -20,17 +20,36 @@ const removeAllMarkers = () => {
   })
 }
 
-const fetchData = async () => {
+const fetchMapData = async () => {
   const response = await fetch('/api/teams.php');
   const json = await response.json();
   return json;
 }
 
-const updateMap = (data) => {
+const updateMap = (data, config) => {
   removeAllMarkers();
 
-  addStartIcon();
-  addEndIcon();
+  const startIcon = L.icon({
+    iconUrl: '/img/start_pin.png',  
+    shadowUrl: '/img/pin_shadow.png',
+    iconSize: [30, 30], // size of the icon
+    shadowSize: [35, 35], // size of the shadow
+    iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
+    shadowAnchor: [17, 17],  // the same for the shadow
+    popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+  });
+  L.marker([config.startLocation.latitude, config.startLocation.longitude], { icon: startIcon }).addTo(map).bindPopup("<h3>Mystery Dropoff</h3>");
+
+  const endIcon = L.icon({
+    iconUrl: '/img/finish_pin.png',  
+    shadowUrl: '/img/pin_shadow.png',
+    iconSize: [30, 30], // size of the icon
+    shadowSize: [35, 35], // size of the shadow
+    iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
+    shadowAnchor: [17, 17],  // the same for the shadow
+    popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+  });
+  L.marker([config.endLocation.latitude, config.endLocation.longitude], { icon: endIcon }).addTo(map).bindPopup("<h3>Finish Location</h3>");
 
   data.teams.forEach(team => {
     const currentLocation = team.updates[0];
@@ -124,12 +143,3 @@ const updateSidebar = (data) => {
     sidebar.appendChild(separator);
   });
 }
-
-const refreshData = async () => {
-  const data = await fetchData();
-  updateMap(data);
-  updateSidebar(data);
-}
-
-refreshData().catch();
-setInterval(refreshData, refreshInterval);
