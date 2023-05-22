@@ -48,6 +48,15 @@ class TeamsApiController {
 			));
 		}
 
+		array_push($updates, array(
+			"latitude" => $config->getStartLocationLatitude(),
+			"longitude" => $config->getStartLocationLongitude(),
+			"message" => "And they're off!",
+			"distanceKm" => CoordinateUtils::distance($config->getStartLocationLatitude(), $config->getStartLocationLongitude(), $config->getStartLocationLatitude(), $config->getStartLocationLongitude(), "K"),
+			"locationName" => "Mystery Location",
+			"timestamp" => $config->getCountdownStart()->format(DateTime::ATOM),
+		));
+
 		return array(
 			"id" => $team->getID(),
 			"name" => $team->getTeamName(),
