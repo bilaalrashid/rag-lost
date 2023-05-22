@@ -15,7 +15,7 @@
 			<div class="wrapper">
 				<div class="split-column-container">
 					<div class="split-column">
-						<p><a href="/admin">Home</a> > <a href="/admin/location-update/view/?teamID=<?php echo $_GET["teamID"]; ?>">Location Updates</a> > Add Location Update</p>
+						<p><a href="/admin">Home</a> > <a href="/admin/location-update/view/?teamID=<?php echo $_GET["teamID"]; ?>">Location Updates</a> > Edit Location Update</p>
 						<h1>Edit Location Update</h1>
 						<form method="POST">
 							<div class="form-row">
