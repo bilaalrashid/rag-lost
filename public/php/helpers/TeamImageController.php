@@ -10,10 +10,16 @@ class TeamImageController {
     $smallest_size = min(imagesx($original_image_data), imagesy($original_image_data));
     $square_image = imagecrop($original_image_data, ['x' => 0, 'y' => 0, 'width' => $smallest_size, 'height' => $smallest_size]);
 
+    // Resize to 1024x1024
+    $resized = imagecreatetruecolor(1024, 1024);
+    imagecopyresized($resized, $square_image, 0, 0, 0, 0, 1024, 1024, $smallest_size, $smallest_size);
+
     // Save image as PNG for consistent format
     $output_file_name = "team_image_" . round(microtime(true)) . mt_rand() . ".png";
-    $success = imagepng($square_image, $directory . "/" . $output_file_name);
+    $success = imagepng($resized, $directory . "/" . $output_file_name);
     imagedestroy($original_image_data);
+    imagedestroy($square_image);
+    imagedestroy($resized);
 
     if ($success) {
       unlink($directory . "/" . $original_file_name);
