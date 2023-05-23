@@ -37,7 +37,7 @@
           </div>
           <div class="form-row">
             <label for="team_image">Team Photo</label>
-            <span>A square profile photo for the team (it will be auto resized if it isn't already a square). Accepts JPEG, PNG and GIF. Maximum 10MB.</span>
+            <span>A square profile photo for the team (it will be auto resized if it isn't already a square). Accepts JPEG, PNG and GIF. Maximum 5MB.</span>
             <input type="file" name="team_image" id="team_image" accept="image/png, image/gif, image/jpeg" data-max-size="5000000" required>
           </div>
           <button type="submit">Create</button>
