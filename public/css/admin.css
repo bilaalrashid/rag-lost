@@ -60,6 +60,10 @@ form .form-row input {
   width: 100%;
 }
 
+form .form-row input[type="color"] {
+  padding: 0;
+}
+
 form button {
   padding: 8px 12px;
   background-color: white;
