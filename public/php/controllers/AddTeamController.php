@@ -19,11 +19,10 @@ class AddTeamController {
 			$cropped_image = TeamImageController::cropTeamImage($upload_directory, $original_team_image_name);
 
 			if (!empty($cropped_image)) {
-				$pin_image = TeamImageController::createPinImage($upload_directory, $cropped_image);
+				$team_color = RandomColor::one();
+				$pin_image = TeamImageController::createPinImage($upload_directory, $cropped_image, $team_color);
 
 				if (!empty($pin_image)) {
-					$team_color = '';
-
 					$store = new TeamStore();
 					$store->addTeam($team_name, $members ?: '', $description ?: '', $donate_url, "/img/uploads/" . $pin_image, "/img/uploads/" . $cropped_image, $team_color);
 
