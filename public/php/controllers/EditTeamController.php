@@ -55,6 +55,14 @@ class EditTeamController {
 		$store = new TeamStore();
 		$store->editTeam($id, $team_name, $members ?: '', $description ?: '', $donate_url, $pin_url, $team_image_url, $team_color);
 
+		if ($team_image_url != $team->getTeamImageURL()) {
+			unlink($upload_directory . "/" . basename($team->getTeamImageURL()));
+		}
+
+		if ($pin_url != $team->getPinURL()) {
+			unlink($upload_directory . "/" . basename($team->getPinURL()));
+		}
+ 
 		$host = $_SERVER["HTTP_HOST"];
 		header("Location: http://{$host}/admin/");
 		exit();
