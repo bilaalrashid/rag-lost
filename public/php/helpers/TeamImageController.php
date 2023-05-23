@@ -16,6 +16,7 @@ class TeamImageController {
     imagedestroy($original_image_data);
 
     if ($success) {
+      unlink($directory . "/" . $original_file_name);
       return $output_file_name;
     }
     
