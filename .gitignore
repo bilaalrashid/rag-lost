@@ -1,5 +1,6 @@
 # Generated using 'gitignore generate Global/macOS Global/VisualStudioCode Global/Vim'
 
+/public/img/uploads/*
 # General
 .DS_Store
 .AppleDouble
