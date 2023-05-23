@@ -17,17 +17,23 @@ class AddTeamController {
 
 		if (!empty($team_name) && !empty($donate_url) && !empty($original_team_image_name)) {
 			$cropped_image = TeamImageController::cropTeamImage($upload_directory, $original_team_image_name);
-			$pin_url = '';
-			$team_color = '';
 
-			$store = new TeamStore();
-			$store->addTeam($team_name, $members ?: '', $description ?: '', $donate_url, $pin_url, "/img/uploads/" . $cropped_image, $team_color);
+			if (!empty($cropped_image)) {
+				$pin_image = TeamImageController::createPinImage($upload_directory, $cropped_image);
 
-			$host = $_SERVER["HTTP_HOST"];
-			header("Location: http://{$host}/admin/");
-			exit();
+				if (!empty($pin_image)) {
+					$team_color = '';
 
-			return true;
+					$store = new TeamStore();
+					$store->addTeam($team_name, $members ?: '', $description ?: '', $donate_url, "/img/uploads/" . $pin_image, "/img/uploads/" . $cropped_image, $team_color);
+
+					$host = $_SERVER["HTTP_HOST"];
+					header("Location: http://{$host}/admin/");
+					exit();
+
+					return true;
+				}
+			}
 		}
 
 		return false;
