@@ -2,7 +2,7 @@
 	set_include_path(__DIR__."/../php/");
 	require_once "files/autoload.php";
 	$class = "AdminController";
-	$title = "Admin";
+	$title = "Home";
 	require_once "files/controller.php";
 ?>
 <!DOCTYPE html>
