@@ -35,12 +35,6 @@
             <span>A link to donate to the team (or just put the main donation link if there is none)</span>
             <input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" required>
           </div>
-          <h2>Advanced Properties</h2>
-          <div class="form-row">
-            <label for="team_image_url">URL to an image of the team</label>
-            <span>Optional. A URL to a .jpg or .png (ideally uploaded to this server). Leave blank if you don't want to use this feature.</span>
-            <input type="url" name="team_image_url" placeholder="A URL here..." id="team_image_url">
-          </div>
           <div class="form-row">
             <label for="team_image">Team Photo</label>
             <span>A square profile photo for the team (it will be auto resized if it isn't already a square). Accepts JPEG, PNG and GIF. Maximum 10MB.</span>
