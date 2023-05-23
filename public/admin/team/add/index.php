@@ -14,7 +14,7 @@
 			<div class="wrapper">
         <p><a href="/admin">Home</a> > Create Team</p>
         <h1>Create Team</h1>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
           <div class="form-row">
             <label for="team_name">Team Name</label>
             <span>This is a name for the team</span>
@@ -41,6 +41,11 @@
             <span>Optional. A URL to a .jpg or .png (ideally uploaded to this server). Leave blank if you don't want to use this feature.</span>
             <input type="url" name="team_image_url" placeholder="A URL here..." id="team_image_url">
           </div>
+          <div class="form-row">
+            <label for="team_image">Team Photo</label>
+            <span>A square profile photo for the team (it will be auto resized if it isn't already a square). Accepts JPEG, PNG and GIF. Maximum 10MB.</span>
+            <input type="file" name="team_image" id="team_image" accept="image/png, image/gif, image/jpeg" data-max-size="5000000" required>
+          </div>
           <button type="submit">Create</button>
         </form>
         <?php if (isset($post) && !$post) { ?>
@@ -50,5 +55,6 @@
 				<?php } ?>
 			</div>
 		</section>
+    <script src="/js/admin/file-upload.js"></script>
 	</body>
 </html>
