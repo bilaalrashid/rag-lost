@@ -16,11 +16,12 @@ class AddTeamController {
 		$donate_url = $_POST["donate_url"];
 
 		if (!empty($team_name) && !empty($donate_url) && !empty($original_team_image_name)) {
+			$cropped_image = TeamImageController::cropTeamImage($upload_directory, $original_team_image_name);
 			$pin_url = '';
 			$team_color = '';
 
 			$store = new TeamStore();
-			$store->addTeam($team_name, $members ?: '', $description ?: '', $donate_url, $pin_url, "/img/uploads/" . $original_team_image_name, $team_color);
+			$store->addTeam($team_name, $members ?: '', $description ?: '', $donate_url, $pin_url, "/img/uploads/" . $cropped_image, $team_color);
 
 			$host = $_SERVER["HTTP_HOST"];
 			header("Location: http://{$host}/admin/");
