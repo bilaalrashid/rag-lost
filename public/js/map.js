@@ -1,3 +1,5 @@
+let hasLoadedOnce = false;
+
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -70,6 +72,19 @@ const updateMap = (data, config) => {
     const polylinePoints = team.updates.map(update => [update.latitude, update.longitude]);
     L.polyline(polylinePoints, { color: team.teamColor, weight: 5 }).addTo(map);
   });
+
+  if (!hasLoadedOnce) {
+    const allMarkers = data.teams.map(team => {
+      const currentLocation = team.updates[0];
+      return [currentLocation.latitude, currentLocation.longitude];
+    });
+    allMarkers.push([config.startLocation.latitude, config.startLocation.longitude]);
+    allMarkers.push([config.endLocation.latitude, config.endLocation.longitude]);
+    const bounds = L.latLngBounds(allMarkers);
+    map.fitBounds(bounds);
+  }
+
+  hasLoadedOnce = true;
 }
 
 const updateSidebar = (data) => {
