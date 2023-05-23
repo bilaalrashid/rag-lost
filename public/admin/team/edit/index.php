@@ -14,7 +14,7 @@
 			<div class="wrapper">
         <p><a href="/admin">Home</a> > Edit Team</p>
         <h1>Edit Team</h1>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
           <div class="form-row">
             <label for="team_name">Team Name</label>
             <span>This is a name for the team</span>
