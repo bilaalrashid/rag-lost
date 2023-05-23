@@ -57,7 +57,7 @@ form .form-row input {
   font-size: 15px;
   margin: 8px 0;
   max-width: 350px;
-  width: calc(100% - 16px);
+  width: 100%;
 }
 
 form button {
