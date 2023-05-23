@@ -33,7 +33,7 @@ class TeamImageController {
     return null;
   }
 
-  static function createPinImage(string $directory, string $team_image_name): ?string {
+  static function createPinImage(string $directory, string $team_image_name, string $team_color): ?string {
     // Load image
     $original_image_data = imagecreatefromstring(file_get_contents($directory . "/" . $team_image_name));
     $original_width = imagesx($original_image_data);
@@ -67,9 +67,12 @@ class TeamImageController {
     // Remove original image from memory
     imagedestroy($resized);
 
+    // Convert hex to rgb
+    list($r, $g, $b) = sscanf($team_color, "#%02x%02x%02x");
+
     // Add border
     $border_image = imagecreatetruecolor($width + $border_width, $width + $border_width);
-    $border_colour = imagecolorallocate($border_image, 255, 255, 255);
+    $border_colour = imagecolorallocate($border_image, $r, $g, $b);
     $transparent = imagecolorallocatealpha($border_image, 0, 0, 0, 127);
     imagefill($border_image, 0, 0, $transparent);
     imagefilledellipse($border_image, ($width + $border_width) / 2, ($width + $border_width) / 2, $width + $border_width, $width + $border_width, $border_colour);
