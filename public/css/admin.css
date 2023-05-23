@@ -56,7 +56,8 @@ form .form-row input {
   padding: 4px;
   font-size: 15px;
   margin: 8px 0;
-  width: 300px;
+  max-width: 350px;
+  width: calc(100% - 16px);
 }
 
 form button {
