@@ -53,7 +53,7 @@ class TeamsApiController {
 			"longitude" => $config->getStartLocationLongitude(),
 			"message" => "And they're off!",
 			"distanceKm" => CoordinateUtils::distance($config->getStartLocationLatitude(), $config->getStartLocationLongitude(), Constants::finish_latitude, Constants::finish_longitude, "K"),
-			"locationName" => "Mystery Location",
+			"locationName" => "Mystery Dropoff",
 			"timestamp" => $config->getCountdownStart()->format(DateTime::ATOM),
 		));
 
