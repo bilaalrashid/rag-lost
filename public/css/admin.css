@@ -33,6 +33,14 @@ header img {
   margin: 16px 0;
 }
 
+.team-list-item table img {
+  width: calc(120px - 6px);
+  border-radius: 100%;
+  border: 6px solid var(--rag-red-color);
+  display: table-cell;
+  margin-right: 16px;
+}
+
 form .form-row {
   margin: 24px 0;
 }
