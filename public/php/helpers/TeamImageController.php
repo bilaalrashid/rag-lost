@@ -40,7 +40,7 @@ class TeamImageController {
 
     // Resize to just under 512x512 (border will fill the rest later)
     $target_width = 512;
-    $border_width = 15;
+    $border_width = 90;
     $inner_width = $target_width - $border_width;
     $resized = imagecreatetruecolor($inner_width, $inner_width);
     imagecopyresized($resized, $original_image_data, 0, 0, 0, 0, $inner_width, $inner_width, $original_width, $original_width);
