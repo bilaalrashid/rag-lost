@@ -26,7 +26,7 @@
 							</div>
 							<div class="form-row">
 								<label for="countdown_start">Countdown Start Time</label>
-								<span>This is the time that the countdown on the map tracker should start counting down from (if you aren't sure yet, you can retroactively update this)</span>
+								<span>This is the time that the countdown on the map tracker should start counting down from. (if you aren't sure yet, you can retroactively update this). This is also the time that the tracker map will become publicly accessible.</span>
 								<input type="datetime-local" name="countdown_start" id="countdown_start" value="<?php echo $model->getCountdownStart()->format("Y-m-d H:i"); ?>" required>
 							</div>
 							<div class="form-row">
