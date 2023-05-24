@@ -55,7 +55,16 @@ const updateMap = (data, config) => {
 
   data.teams.forEach(team => {
     const currentLocation = team.updates[0];
-    const marker = L.marker([currentLocation.latitude, currentLocation.longitude]).addTo(map);
+    const icon = L.icon({
+      iconUrl: team.pinUrl,  
+      shadowUrl: '/img/pin_shadow.png',
+      iconSize: [30, 30], // size of the icon
+      shadowSize: [35, 35], // size of the shadow
+      iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
+      shadowAnchor: [17, 17],  // the same for the shadow
+      popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+    });
+    const marker = L.marker([currentLocation.latitude, currentLocation.longitude], { icon: icon }).addTo(map);
     const popupContents = `
       <div class="map-popup">
         <img src="${team.teamImageUrl}" style="border-color: ${team.teamColor}" />

@@ -19,6 +19,14 @@ class DeleteTeamController {
       }
 
       $team_store = new TeamStore();
+
+      // Delete pin and team images associated with this team to prevent clogging up disk space
+      $team = $team_store->getTeamFromID($id);
+      $upload_directory =  __DIR__ . "/../../img/uploads";
+      unlink($upload_directory . "/" . basename($team->getTeamImageURL()));
+      unlink($upload_directory . "/" . basename($team->getPinURL()));
+
+      // Finally, delete the main team object
       $team_store->deleteTeam($id);
 
       $host = $_SERVER["HTTP_HOST"];

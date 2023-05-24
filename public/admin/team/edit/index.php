@@ -14,7 +14,7 @@
 			<div class="wrapper">
         <p><a href="/admin">Home</a> > Edit Team</p>
         <h1>Edit Team</h1>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
           <div class="form-row">
             <label for="team_name">Team Name</label>
             <span>This is a name for the team</span>
@@ -38,18 +38,22 @@
           <h2>Advanced Properties</h2>
           <div class="form-row">
             <label for="team_color">Team Colour</label>
-            <span>Optional. A URL to a .jpg or .png (ideally uploaded to this server). Don't touch this if you don't know what you're doing.</span>
-            <input type="color" name="team_color" placeholder="A URL here..." id="team_color" value="<?php echo $model->getTeamColor(); ?>">
+            <span>The team's colour. This was auto-generated for you, but you can edit it here if you don't like it.</span>
+            <input type="color" name="team_color" placeholder="A URL here..." id="team_color" value="<?php echo $model->getTeamColor(); ?>" required>
           </div>
           <div class="form-row">
-            <label for="team_image_url">URL to an image of the team</label>
-            <span>Optional. A URL to a .jpg or .png (ideally uploaded to this server). Leave blank if you don't want to use this feature.</span>
-            <input type="url" name="team_image_url" placeholder="A URL here..." id="team_image_url" value="<?php echo $model->getTeamImageURL(); ?>">
-          </div>
-          <div class="form-row">
-            <label for="pin_url">URL to an image to use as the map pin</label>
-            <span>Optional. A URL to a .jpg or .png (ideally uploaded to this server). Don't touch this if you don't know what you're doing.</span>
-            <input type="url" name="pin_url" placeholder="A URL here..." id="pin_url" value="<?php echo $model->getPinURL(); ?>">
+            <table>
+              <tr>
+                <td>
+                  <img src="<?php echo $model->getTeamImageURL(); ?>" alt="Currently uploaded photo" />
+                </td>
+                <td>
+                  <label for="team_image">Team Photo</label>
+                  <span>A square profile photo for the team (it will be auto resized if it isn't already a square). Accepts JPEG, PNG and GIF. Maximum 5MB.</span>
+                  <input type="file" name="team_image" id="team_image" accept="image/png, image/gif, image/jpeg" data-max-size="5000000">
+                </td>
+              </tr>
+            </table>
           </div>
           <button type="submit">Save</button>
         </form>
@@ -70,6 +74,7 @@
           </form>
         </details>
 			</div>
+      <script src="/js/admin/file-upload.js"></script>
 		</section>
 	</body>
 </html>
