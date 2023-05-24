@@ -23,10 +23,10 @@
 					} else {
 						foreach ($get[1] as $update) {
 				?>
-					<div>
-						<h2><?php echo $update->getUpdateTimestamp()->format("H:i, d/m/Y"); ?></h2>
-						<p><?php echo $update->getUpdateMessage(); ?></p>
-						<p><?php echo $update->getLatitude(); ?>, <?php echo $update->getLongitude(); ?></p>
+					<div class="location-update-list-item">
+						<h1><?php echo $update->getLocationName(); ?></h1>
+						<p><?php echo $update->getUpdateTimestamp()->format("H:i, d/m/Y"); ?></p>
+						<p class="message">"<?php echo $update->getUpdateMessage(); ?>"</p>
 						<p><a href="/admin/location-update/edit?id=<?php echo $update->getID(); ?>&teamID=<?php echo $_GET["teamID"]; ?>" class="link-button">Edit</a></p>
 					</div>
 					<hr />

@@ -41,6 +41,10 @@ header img {
   margin-right: 16px;
 }
 
+.location-update-list-item .message {
+  font-style: italic;
+}
+
 form .form-row {
   margin: 24px 0;
 }
