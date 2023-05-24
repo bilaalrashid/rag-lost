@@ -20,12 +20,12 @@
 						<form method="POST">
 							<div class="form-row">
 								<label for="update_message">Message</label>
-								<span>Optional. A fun and whity (or serious if you prefer) message to be displayed with this latest location update</span>
+								<span>Optional. A fun and whity (or serious if you prefer) message to be displayed with this latest location update.</span>
 								<input type="text" name="update_message" placeholder="Some text here..." id="update_message" value="<?php echo $model->getUpdateMessage(); ?>">
 							</div>
 							<div class="form-row">
 								<label for="update_timestamp">Time</label>
-								<span>The time at which this update is shown as occurring at</span>
+								<span>The time at which this update is shown as occurring at.</span>
 								<input type="datetime-local" name="update_timestamp" placeholder="Some text here..." id="update_timestamp" value="<?php echo $model->getUpdateTimestamp()->format("Y-m-d H:i"); ?>" required>
 							</div>
 							<div class="form-row">

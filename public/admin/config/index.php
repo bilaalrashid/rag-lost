@@ -26,7 +26,7 @@
 							</div>
 							<div class="form-row">
 								<label for="countdown_start">Countdown Start Time</label>
-								<span>This is the time that the countdown on the map tracker should start counting down from. (if you aren't sure yet, you can retroactively update this). This is also the time that the tracker map will become publicly accessible.</span>
+								<span>This is the time that the countdown on the map tracker should start counting down from. (if you aren't sure yet, you can retroactively update this). This is also the time that the map tracker will become publicly accessible.</span>
 								<input type="datetime-local" name="countdown_start" id="countdown_start" value="<?php echo $model->getCountdownStart()->format("Y-m-d H:i"); ?>" required>
 							</div>
 							<div class="form-row">
@@ -36,12 +36,12 @@
 							</div>
 							<div class="form-row">
 								<label for="donate_url">Donate URL</label>
-								<span>Optional. This is the main URL to donate to, which will be displayed at the top of the map tracker</span>
+								<span>Optional. This is the main URL to donate to, which will be displayed at the top of the map tracker.</span>
 								<input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" value="<?php echo $model->getDonateUrl(); ?>">
 							</div>
 							<div class="form-row">
 								<label for="charity_name">Charity Name</label>
-								<span>The name of the charity this event is raising money for</span>
+								<span>The name of the charity this event is raising money for.</span>
 								<input type="text" name="charity_name" placeholder="Some text here..." id="charity_name" value="<?php echo $model->getCharityName(); ?>" required>
 							</div>
 							<button type="submit">Save</button>

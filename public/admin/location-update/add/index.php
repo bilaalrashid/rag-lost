@@ -20,7 +20,7 @@
 						<form method="POST">
 							<div class="form-row">
 								<label for="update_message">Message</label>
-								<span>Optional. A fun and whity (or serious if you prefer) message to be displayed with this latest location update</span>
+								<span>Optional. A fun and whity (or serious if you prefer) message to be displayed with this latest location update.</span>
 								<input type="text" name="update_message" placeholder="Some text here..." id="update_message">
 							</div>
 							<div class="form-row">

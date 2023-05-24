@@ -17,12 +17,12 @@
         <form method="POST" enctype="multipart/form-data">
           <div class="form-row">
             <label for="team_name">Team Name</label>
-            <span>This is a name for the team</span>
+            <span>This is a name for the team.</span>
             <input type="text" name="team_name" placeholder="Some text here..." id="team_name" required>
           </div>
           <div class="form-row">
             <label for="members">Members</label>
-            <span>Optional. A brief line of text containing the members name, or something like that</span>
+            <span>Optional. A brief line of text containing the members name, or something like that.</span>
             <input type="text" name="members" placeholder="Some text here..." id="members">
           </div>
           <div class="form-row">
@@ -32,11 +32,11 @@
           </div>
           <div class="form-row">
             <label for="donate_url">Donation Link</label>
-            <span>A link to donate to the team (or just put the main donation link if there is none)</span>
+            <span>A link to donate to the team (or just put the main donation link if there is none).</span>
             <input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" required>
           </div>
           <div class="form-row">
-            <label for="team_image">Team Photo</label>
+            <label for="team_image">Square Team Photo</label>
             <span>A square profile photo for the team (it will be auto resized if it isn't already a square). Accepts JPEG, PNG and GIF. Maximum 5MB.</span>
             <input type="file" name="team_image" id="team_image" accept="image/png, image/gif, image/jpeg" data-max-size="5000000" required>
           </div>
