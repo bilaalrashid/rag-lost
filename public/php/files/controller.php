@@ -5,7 +5,7 @@ session_start();
 $isLoggedIn = SessionController::isLoggedIn();
 
 if ($isLoggedIn != true) {
-	$unrestricted = ["/holding", "/", "/admin/login/", "/api/teams.php", "/api/config.php"];
+	$unrestricted = ["/holding/", "/", "/admin/login/", "/api/teams.php", "/api/config.php"];
 
 	if (!in_array($_SERVER["REQUEST_URI"], $unrestricted, true)) {
 		$host = $_SERVER["HTTP_HOST"];
