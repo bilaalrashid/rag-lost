@@ -2,7 +2,7 @@
 
 class TeamImageController {
 
-  static function cropTeamImage(string $directory, string $original_file_name): ?string {
+  static function cropTeamImage($directory, $original_file_name) {
     // Load image 
     $original_image_data = imagecreatefromstring(file_get_contents($directory . "/" . $original_file_name));
 
@@ -33,7 +33,7 @@ class TeamImageController {
     return null;
   }
 
-  static function createPinImage(string $directory, string $team_image_name, string $team_color): ?string {
+  static function createPinImage($directory, $team_image_name, $team_color) {
     // Load image
     $original_image_data = imagecreatefromstring(file_get_contents($directory . "/" . $team_image_name));
     $original_width = imagesx($original_image_data);

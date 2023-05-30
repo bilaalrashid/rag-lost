@@ -17,7 +17,7 @@ class TeamStore extends DatabaseController {
 		* @param  string  $team_image_url  [The URL of the team image]
 		* @param  string  $team_color      [The color of the team]
     */
-	public function addTeam(string $team_name, string $members, string $description, string $donate_url, string $pin_url, string $team_image_url, string $team_color) {
+	public function addTeam($team_name, $members, $description, $donate_url, $pin_url, $team_image_url, $team_color) {
 		$db = $this->connection;
 
 		$sql = 
@@ -38,7 +38,7 @@ class TeamStore extends DatabaseController {
    * 
 	 * @return array       [All teams stored in the database]
 	 */
-	public function getAllTeams(): array {
+	public function getAllTeams() {
 		$db = $this->connection;
 
 		$sql = 
@@ -77,7 +77,7 @@ class TeamStore extends DatabaseController {
 	 * @param  string  $team_image_url  [The URL of the team image]
 	 * @param  string  $team_color      [The color of the team]
 	 */
-	public function editTeam(int $id, string $team_name, string $members, string $description, string $donate_url, string $pin_url, string $team_image_url, string $team_color) {
+	public function editTeam($id, $team_name, $members, $description, $donate_url, $pin_url, $team_image_url, $team_color) {
 		$db = $this->connection;
 
 		$sql = 
@@ -100,7 +100,7 @@ class TeamStore extends DatabaseController {
 	 * @param  int    $id [Team id]
 	 * @return ?Team      [Full team object]
 	 */
-	public function getTeamFromID(int $id): ?Team {
+	public function getTeamFromID($id) {
 		$db = $this->connection;
 
 		$sql = 
@@ -132,7 +132,7 @@ class TeamStore extends DatabaseController {
    * 
 	 * @param  int  $id  [Team id]
 	 */
-	public function deleteTeam(int $id) {
+	public function deleteTeam($id) {
 		$db = $this->connection;
 
 		$sql = 

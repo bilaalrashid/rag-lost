@@ -25,7 +25,7 @@ class Team {
    * @param string $team_image_url    [The URL of the team image]
    * @param string $team_color        [The color of the team]
 	 */
-	public function __construct(int $id, string $team_name, string $members, string $team_description, string $donate_url, string $pin_url, string $team_image_url, string $team_color) {
+	public function __construct($id, $team_name, $members, $team_description, $donate_url, $pin_url, $team_image_url, $team_color) {
     $this->id = $id;
     $this->team_name = $team_name;
     $this->members = $members;
@@ -40,7 +40,7 @@ class Team {
    * Gets the ID of the team
    * @return int [The ID of the team]
    */
-  public function getID(): int {
+  public function getID() {
     return $this->id;
   }
 
@@ -48,7 +48,7 @@ class Team {
    * Gets the name of the team
    * @return string [The name of the team]
    */
-  public function getTeamName(): string {
+  public function getTeamName() {
     return htmlspecialchars($this->team_name);
   }
 
@@ -56,7 +56,7 @@ class Team {
    * Gets the members of the team
    * @return string [A summary of all the team members]
    */
-  public function getMembers(): string {
+  public function getMembers() {
     return htmlspecialchars($this->members);
   }
 
@@ -64,7 +64,7 @@ class Team {
    * Gets the description of the team
    * @return string [A description of the team]
    */
-  public function getTeamDescription(): string {
+  public function getTeamDescription() {
     return htmlspecialchars($this->team_description);
   }
 
@@ -72,7 +72,7 @@ class Team {
    * Gets the URL to donate directly to the team
    * @return string [The URL to donate directly to the team]
    */
-  public function getDonateURL(): string {
+  public function getDonateURL() {
     return htmlspecialchars($this->donate_url);
   }
 
@@ -80,7 +80,7 @@ class Team {
    * Gets the URL of the pin to display on the map for the team
    * @return string [The URL of the pin to display on the map for the team]
    */
-  public function getPinURL(): string {
+  public function getPinURL() {
     return htmlspecialchars($this->pin_url);
   }
 
@@ -88,7 +88,7 @@ class Team {
    * Gets the URL of the team image
    * @return string [The URL of the team image]
    */
-  public function getTeamImageURL(): string {
+  public function getTeamImageURL() {
     return htmlspecialchars($this->team_image_url);
   }
 
@@ -96,7 +96,7 @@ class Team {
    * Gets the color of the team
    * @return string [The color of the team]
    */
-  public function getTeamColor(): string {
+  public function getTeamColor() {
     return htmlspecialchars($this->team_color);
   }
 

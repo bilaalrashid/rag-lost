@@ -9,7 +9,7 @@ class FileUploadController {
    * @param  string  $target_directory  [The directory to move the file to]
    * @return ?string                    [The name of the uploaded file, or null if the file was invalid]
    */
-  static function validate_single_image(string $form_name, string $target_directory): ?string {
+  static function validate_single_image($form_name, $target_directory) {
     $file = $_FILES[$form_name];
 
     // Check we've uploaded a file

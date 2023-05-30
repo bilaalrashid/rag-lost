@@ -15,7 +15,7 @@ class LocationUpdateStore extends DatabaseController {
 		* @param  string  $location_name     [The name of the location for display]
     * @param  int     $team_id           [The ID of the team that is update is for]
     */
-	public function addUpdate(float $latitude, float $longitude, string $update_message, string $location_name, int $team_id) {
+	public function addUpdate($latitude, $longitude, $update_message, $location_name, $team_id) {
 		$db = $this->connection;
 
 		$sql = 
@@ -41,7 +41,7 @@ class LocationUpdateStore extends DatabaseController {
 	 * @param  string             $location_name     [The name of the location for display]
 	 * @param  DateTimeInterface  $update_timestamp  [The name of the team]
 	 */
-	public function editUpdate(int $id, float $latitude, float $longitude, string $update_message, string $location_name, DateTimeInterface $update_timestamp) {
+	public function editUpdate($id, $latitude, $longitude, $update_message, $location_name, $update_timestamp) {
 		$db = $this->connection;
 
 		$sql = 
@@ -64,7 +64,7 @@ class LocationUpdateStore extends DatabaseController {
    * @param  int     $team_id  [The ID of the team to get updates for]
 	 * @return array             [All teams stored in the database]
 	 */
-	public function getAllUpdatesForTeam(int $team_id): array {
+	public function getAllUpdatesForTeam($team_id) {
 		$db = $this->connection;
 
 		$sql = 
@@ -100,7 +100,7 @@ class LocationUpdateStore extends DatabaseController {
 	 * @param  int    $id       [Location update id]
 	 * @return ?LocationUpdate  [Full location update object]
 	 */
-	public function getUpdateFromID(int $id): ?LocationUpdate {
+	public function getUpdateFromID($id) {
 		$db = $this->connection;
 
 		$sql = 
@@ -132,7 +132,7 @@ class LocationUpdateStore extends DatabaseController {
    * 
 	 * @param  int  $id  [Team id]
 	 */
-	public function deleteUpdate(int $id) {
+	public function deleteUpdate($id) {
 		$db = $this->connection;
 
 		$sql = 

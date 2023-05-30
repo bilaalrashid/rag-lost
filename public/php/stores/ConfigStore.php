@@ -16,7 +16,7 @@ class ConfigStore extends DatabaseController {
 	 * @param  string  $donate_url                [The URL of the donation page]
 	 * @param  string  $charity_name              [The name of the charity fundraising for]
 	 */
-	public function editConfig(DateTimeInterface $countdown_start, float $start_location_latitude, float $start_location_longitude, float $donation_total, string $donate_url, string $charity_name) {
+	public function editConfig($countdown_start, $start_location_latitude, $start_location_longitude, $donation_total, $donate_url, $charity_name) {
 		$db = $this->connection;
 
 		$sql = 
@@ -38,7 +38,7 @@ class ConfigStore extends DatabaseController {
    * 
 	 * @return ?Config       [The config for the site]
 	 */
-	public function getConfig(): ?Config {
+	public function getConfig() {
 		$db = $this->connection;
 
 		$sql = 

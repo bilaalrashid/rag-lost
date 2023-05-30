@@ -23,7 +23,7 @@ class LocationUpdate {
    * @param string $location_name     [The name of the location for display]
    * @param int    $team_id           [The ID of the team that the location update belongs to]
 	 */
-	public function __construct(int $id, float $latitude, float $longitude, string $update_message, DateTimeInterface $update_timestamp, string $location_name, int $team_id) {
+	public function __construct($id, $latitude, $longitude, $update_message, $update_timestamp, $location_name, $team_id) {
     $this->id = $id;
     $this->latitude = $latitude;
     $this->longitude = $longitude;
@@ -37,7 +37,7 @@ class LocationUpdate {
    * Gets the ID of the location update
    * @return int [The ID of the location update]
    */
-  public function getID(): int {
+  public function getID() {
     return $this->id;
   }
 
@@ -45,7 +45,7 @@ class LocationUpdate {
    * Gets the latitude of the location update
    * @return float [The latitude of the location update]
    */
-  public function getLatitude(): float {
+  public function getLatitude() {
     return $this->latitude;
   }
 
@@ -53,7 +53,7 @@ class LocationUpdate {
    * Gets the longitude of the location update
    * @return float [The longitude of the location update]
    */
-  public function getLongitude(): float {
+  public function getLongitude() {
     return $this->longitude;
   }
 
@@ -61,7 +61,7 @@ class LocationUpdate {
    * Gets the message of the location update
    * @return string [The message of the location update]
    */
-  public function getUpdateMessage(): string {
+  public function getUpdateMessage() {
     return htmlspecialchars($this->update_message);
   }
 
@@ -69,7 +69,7 @@ class LocationUpdate {
    * Gets the timestamp of the location update
    * @return string [The timestamp of the location update]
    */
-  public function getUpdateTimestamp(): DateTimeInterface {
+  public function getUpdateTimestamp() {
     return $this->update_timestamp;
   }
 
@@ -77,7 +77,7 @@ class LocationUpdate {
    * Gets the name of the location for display
    * @return string [The name of the location for display]
    */
-  public function getLocationName(): string {
+  public function getLocationName() {
     return htmlspecialchars($this->location_name);
   }
 
@@ -85,7 +85,7 @@ class LocationUpdate {
    * Gets the ID of the team that the location update belongs to
    * @return int [The ID of the team that the location update belongs to]
    */
-  public function getTeamID(): int {
+  public function getTeamID() {
     return $this->team_id;
   }
 
