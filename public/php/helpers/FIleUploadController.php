@@ -34,7 +34,7 @@ class FileUploadController {
       }
 
       $file_size = filesize($tmp_file_name);
-      $max_file_size = 5_000_000; // 5MB
+      $max_file_size = 5000000; // 5MB
 
       // Check if file is empty
       if ($file_size == 0) {
