@@ -52,7 +52,7 @@ class FileUploadController {
 
       // Create target directory if it doesn't exist
       if (!file_exists($target_directory)) {
-        mkdir($target_directory, 0775, true);
+        mkdir($target_directory, 0777, true);
       }
 
       // Move file from temp directory
