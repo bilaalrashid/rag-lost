@@ -44,7 +44,7 @@
 										<td>
 											<h1><?php echo $team->getTeamName(); ?></h1>
 											<p><?php echo $team->getMembers(); ?></p>
-											<p><a href="/admin/team/edit?id=<?php echo $team->getID(); ?>" class="link-button">Edit Details</a> | <a href="/admin/location-update/view?teamID=<?php echo $team->getID(); ?>" class="link-button">Location Updates</a></p>
+											<p><a href="/admin/team/edit?id=<?php echo $team->getID(); ?>" class="link-button">Edit Details</a> | <a href="/admin/location-update/view?teamID=<?php echo $team->getID(); ?>" class="link-button">Edit Location Updates</a></p>
 										</td>
 									</tr>
 								</table>
