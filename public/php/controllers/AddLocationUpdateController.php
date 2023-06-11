@@ -11,11 +11,9 @@ class AddLocationUpdateController {
 		$latitude = $_POST["latitude"];
 		$longitude = $_POST["longitude"];
 		$update_message = $_POST["update_message"];
+		$location_name= $_POST["location_name"];
 
 		if (!empty($team_id) && !empty($latitude) && !empty($longitude)) {
-			$reverseGeocode = CoordinateUtils::reverseGeocode($latitude, $longitude);
-			$location_name = $reverseGeocode["address"]["city"] ?: $reverseGeocode["address"]["city_district"] ?: $reverseGeocode["address"]["village"] ?: $reverseGeocode["address"]["county"] ?: $reverseGeocode["address"]["state"];
-
 			$store = new LocationUpdateStore();
 			$store->addUpdate($latitude, $longitude, $update_message ?: '', $location_name ?: '', $team_id);
 

@@ -29,6 +29,11 @@
 								<input type="number" step="any" name="latitude" placeholder="Latitude" id="latitude" required>
 								<input type="number" step="any" name="longitude" placeholder="Longitude" id="longitude" required>
 							</div>
+							<div class="form-row">
+								<label for="location_name">Location Name</label>
+								<span>A short name to describe the location (this will auto-generated for you when you click on the map, but you can edit it here if you don't like it)</span>
+								<input type="text" name="location_name" placeholder="Some text here..." id="location_name" required>
+							</div>
 							<button type="submit">Add Update</button>
 						</form>
 						<?php if (isset($post) && !$post) { ?>

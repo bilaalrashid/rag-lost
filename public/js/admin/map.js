@@ -14,7 +14,7 @@ L.control.zoom({
   position: 'bottomleft'
 }).addTo(map);
 
-/****** Map search ******/
+/****** Geocode ******/
 
 /**
  * Performs a geocode lookup, converting a human-readable search query to coordinates.
@@ -35,6 +35,28 @@ const geocode = async (query) => {
   return data
 }
 
+/**
+ * Performs a reverse geocode lookup, converting coordinates to a human-readable address.
+ *
+ * NOTE: Fair use limits apply to this community hosted version of Nominatim, so please don't use heavily.
+ * See https://operations.osmfoundation.org/policies/nominatim/
+ *
+ * @param {lat} number The latitude to reverse geocode
+ * @param {lng} number The longitude to reverse geocode
+ */
+const reverseGeocode = async (lat, lng) => {
+  const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`)
+
+  if (!response.ok) {
+    return null
+  }
+
+  const data = await response.json()
+  return data
+}
+
+/****** Map search ******/
+
 document.querySelector('.map-search').addEventListener('keydown', async (e) => {
   if (e.key == "Enter") {
     const query = document.querySelector('.map-search').value;
@@ -47,6 +69,7 @@ document.querySelector('.map-search').addEventListener('keydown', async (e) => {
     const result = await geocode(query);
 
     if (result && result.length > 0) {
+      // Debug call
       console.log(result);
       const firstResult = result[0];
 
@@ -75,11 +98,36 @@ const removeAllMarkers = () => {
   })
 }
 
-map.on('click', (e) => {
+const reverseGeocodeAreaName = async (lat, lng) => {
+  const result = await reverseGeocode(lat, lng);
+  // Debug call
+  console.log(result);
+
+  if (result && result.address) {
+    return result.address.town
+      || result.address.city
+      || result.address.city_district
+      || result.address.village
+      || result.address.quarter
+      || result.address.state_district
+      || result.address.county
+      || result.address.state;
+  }
+
+  return null;
+}
+
+map.on('click', async (e) => {
   removeAllMarkers();
   new L.marker(e.latlng).addTo(map);
+  
+  // Display coordinates on the page
   document.querySelector('#latitude').value = e.latlng.lat;
   document.querySelector('#longitude').value = e.latlng.lng;
+
+  // Display reverse geocode on the page
+  const locationName = await reverseGeocodeAreaName(e.latlng.lat, e.latlng.lng);
+  if (document.querySelector('#location_name')) document.querySelector('#location_name').value = locationName || 'Unknown';
 });
 
 /****** Display location on map ******/
