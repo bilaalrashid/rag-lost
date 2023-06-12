@@ -100,6 +100,21 @@ const updateSidebar = (data) => {
   const sidebar = document.querySelector('.sidebar');
   sidebar.innerHTML = '';
 
+  const toggle = document.createElement('a');
+  toggle.classList.add('toggle');
+  toggle.href = 'javascript:void(0);';
+  toggle.innerText = 'Show Teams';
+  toggle.onclick = () => {
+    toggle.innerText = toggle.innerText === 'Show Teams' ? 'Hide Teams' : 'Show Teams';
+    document.querySelectorAll('.team-details').forEach(teamDetails => {
+      teamDetails.style.display = (teamDetails.style.display || 'none') === 'none' ? 'block' : 'none';
+    });
+    document.querySelectorAll('.separator').forEach(divider => {
+      divider.style.display = (divider.style.display || 'none') === 'none' ? 'block' : 'none';
+    });
+  }
+  sidebar.appendChild(toggle);
+
   data.teams.forEach(team => {
     const currentLocation = team.updates[0];
     
@@ -164,6 +179,7 @@ const updateSidebar = (data) => {
     sidebar.appendChild(teamDetails);
 
     const separator = document.createElement('hr');
+    separator.className = 'separator';
     sidebar.appendChild(separator);
   });
 }
