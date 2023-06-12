@@ -149,7 +149,8 @@ a {
 }
 
 .sidebar {
-  height: 100%;
+  height: calc(100vh - 132px - 32px);
+  overflow: scroll;
   padding: 16px;
   min-width: 300px;
   background-color: white;
@@ -267,6 +268,11 @@ a {
   #map {
     height: calc(100vh - 121px);
   }
+
+  .sidebar {
+    height: calc(100vh - 121px - 32px);
+    overflow: scroll;
+  }
 }
 
 @media screen and (max-width: 820px) {
@@ -349,6 +355,7 @@ a {
   }
 
   .sidebar {
+    height: 100%;
     padding-bottom: 0;
   }
 
