@@ -15,7 +15,7 @@
 				<p>
 					Welcome to the RAG Lost admin panel!
 					This is where you will be able to configure and edit most aspects of the tracker map.
-					For anything else, you will probably need to touch the code, but hopefully it isn't <i>too</i> scary. 
+					For anything else, you will probably need to touch the <a href="https://github.com/bilaalrashid/rag-lost" target="_blank">source code</a>, but hopefully it isn't <i>too</i> scary. 
 					If in doubt, contact <a href="mailto:bilaal@bilaal.co.uk">Bilaal</a>.
 					RAG Love ❤️
 				</p>
