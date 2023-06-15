@@ -36,9 +36,6 @@
       <h2>12 hours to navigate back to Southampton from a mystery location</h2>
       <h3>Raising Money for <?php echo $model->getCharityName(); ?></h3>
       <h3>Event Starting Soon, Check Back Later</h3>
-      <p class="donate-container">
-        <a href="<?php echo $model->getDonateURL(); ?>" target="_blank" class="donate">Donate Online</a>
-      </p>
     </div>
   </body>
 </html>

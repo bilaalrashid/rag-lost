@@ -36,7 +36,7 @@
         <div class="info">
           <h1>RAG Lost • <?php echo $model->getCountdownStart()->format("jS F o"); ?></h1>
           <p class="description">12 hours to navigate back to Southampton from a mystery location</p>
-          <p class="charity-details">Total Raised: <span class="donation-total"></span><a href="" target="_blank" class="donation-link"></a></p>
+          <p class="charity-details">Total Raised: <span class="donation-total"></span></p>
         </div>
         <div class="countdown">
           <p class="countdown-timer">12:00</p>

@@ -11,8 +11,3 @@ const updateDonationTotal = (data) => {
   });
   document.querySelector('.donation-total').innerHTML = formatter.format(data.donationTotal);
 }
-
-const updateDonationLink = (data) => {
-  document.querySelector('.donation-link').href = data.donateUrl;
-  document.querySelector('.donation-link').innerHTML = `Donate to ${data.charityName}`;
-}

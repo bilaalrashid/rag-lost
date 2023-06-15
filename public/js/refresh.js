@@ -3,7 +3,6 @@ let countdownStart = null;
 const refreshData = async () => {
   const configData = await fetchConfigData();
   updateDonationTotal(configData);
-  updateDonationLink(configData);
   countdownStart = configData.countdownStart;
 
   const mapData = await fetchMapData();
