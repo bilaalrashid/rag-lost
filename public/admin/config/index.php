@@ -35,11 +35,6 @@
 								<input type="number" step="any" name="donation_total" placeholder="A number here..." id="donation_total" value="<?php echo $model->getDonationTotal(); ?>">
 							</div>
 							<div class="form-row">
-								<label for="donate_url">Donate URL</label>
-								<span>Optional. This is the main URL to donate to, which will be displayed at the top of the map tracker.</span>
-								<input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" value="<?php echo $model->getDonateUrl(); ?>">
-							</div>
-							<div class="form-row">
 								<label for="charity_name">Charity Name(s)</label>
 								<span>The name(s) of the charity this event is raising money for.</span>
 								<input type="text" name="charity_name" placeholder="Some text here..." id="charity_name" value="<?php echo $model->getCharityName(); ?>" required>
