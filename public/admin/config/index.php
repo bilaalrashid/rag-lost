@@ -40,8 +40,8 @@
 								<input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" value="<?php echo $model->getDonateUrl(); ?>">
 							</div>
 							<div class="form-row">
-								<label for="charity_name">Charity Name</label>
-								<span>The name of the charity this event is raising money for.</span>
+								<label for="charity_name">Charity Name(s)</label>
+								<span>The name(s) of the charity this event is raising money for.</span>
 								<input type="text" name="charity_name" placeholder="Some text here..." id="charity_name" value="<?php echo $model->getCharityName(); ?>" required>
 							</div>
 							<button type="submit">Save</button>
