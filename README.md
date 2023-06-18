@@ -1,8 +1,15 @@
 # RAG LOST
 
-A web tracker for RAG LOST!
+The online tracker for Southampton RAG LOST!
 
 ![Screenshot](images/screenshot.png)
+
+## Contents
+
+* [Getting Started](#getting-started)
+* [Usage](#usage)
+* [Gotchas and Limitations](#gotchas-and-limitations)
+* [Deploying to Production](#deploying-to-production)
 
 ## Getting Started
 
@@ -29,7 +36,7 @@ Whilst there is logic that determines if the user should be displayed the tracke
 
 Finally, this system only supports the LOST event (where people try to make their way back from a mystery location to Southampton). It does not support the Jailbreak event (where people try to get as far away from Southampton as possible), although that may be possible to achieve with some tweaks to this codebase. The recovered code for the old Jailbreak site is stored in the [`ragtacker`](https://github.com/bilaalrashid/rag-lost/tree/ragtracker) branch.
 
-## Production
+## Deploying to Production
 
 1. Setup a production database and initialise the schema by running all of the files [`migrations/migration-*.sql`](https://github.com/bilaalrashid/rag-lost/tree/main/migrations) in numerical order
 2. Upload the contents of the [`public/`](https://github.com/bilaalrashid/rag-lost/tree/main/public) directory to the webroot directory of the production server
