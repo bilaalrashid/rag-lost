@@ -2,6 +2,8 @@
 
 A web tracker for RAG LOST!
 
+![Screenshot](images/screenshot.png)
+
 ## Getting Started
 
 1. Clone the repo
