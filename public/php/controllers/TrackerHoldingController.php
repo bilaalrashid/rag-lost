@@ -6,8 +6,7 @@ class TrackerHoldingController {
 		$store = new ConfigStore();
 		$config = $store->getConfig();
 
-		// Fix SUSU server using BST instead of GMT
-    $now = (new DateTimeImmutable())->modify('+1 hour');
+    $now = new DateTimeImmutable();
     $countdown_start = $config->getCountdownStart();
     if ($now > $countdown_start) {
       $host = $_SERVER["HTTP_HOST"];

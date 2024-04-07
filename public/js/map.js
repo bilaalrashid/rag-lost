@@ -11,7 +11,7 @@ L.control.zoom({
 
 const getTimeFromDateString = (timestamp) => {
   const date = new Date(timestamp);
-  return `${date.getUTCHours().toLocaleString('en-gb', { minimumIntegerDigits: 2 })}:${date.getUTCMinutes().toLocaleString('en-gb', { minimumIntegerDigits: 2 })}`
+  return `${date.getHours().toLocaleString('en-gb', { minimumIntegerDigits: 2 })}:${date.getMinutes().toLocaleString('en-gb', { minimumIntegerDigits: 2 })}`
 }
 
 const removeAllMarkers = () => {
