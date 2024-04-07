@@ -25,7 +25,8 @@ L.control.zoom({
  * @param {query} string The search query to lookup
  */
 const geocode = async (query) => {
-  const response = await fetch(`https://nominatim.openstreetmap.org/search/${query}?format=jsonv2&countrycodes=gb`)
+  const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=jsonv2&countrycodes=gb`
+  const response = await fetch(url)
 
   if (!response.ok) {
     return [];
