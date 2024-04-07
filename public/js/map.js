@@ -127,6 +127,7 @@ const updateSidebar = (data) => {
     const image = document.createElement('img');
     image.src = team.teamImageUrl;
     image.style.borderColor = team.teamColor;
+    image.className = 'team-image';
     imageCell.appendChild(image);
     row.appendChild(imageCell);
 
@@ -151,6 +152,20 @@ const updateSidebar = (data) => {
     row.appendChild(overviewCell);
     table.appendChild(row);
     teamDetails.appendChild(table);
+
+    const donateButton = document.createElement('a');
+    donateButton.href = team.donateUrl;
+    donateButton.target = '_blank';
+    donateButton.className = 'donate-button';
+    donateButton.style.backgroundColor = team.teamColor;
+    teamDetails.appendChild(donateButton);
+    const donateText = document.createElement('span');
+    donateText.innerText = 'Donate Online';
+    donateButton.appendChild(donateText);
+    const donateIcon = document.createElement('img');
+    donateIcon.src = '/img/external-link.svg';
+    donateIcon.className = 'external-link';
+    donateButton.appendChild(donateIcon);
 
     const details = document.createElement('details');
     const summary = document.createElement('summary');

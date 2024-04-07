@@ -178,11 +178,28 @@ a {
   color: white;
 }
 
-.sidebar .team-details img {
+.sidebar .team-details .team-image {
   width: 94px;
   border-radius: 100%;
   border: 6px solid var(--rag-red-color);
   display: table-cell;
+}
+
+.sidebar .team-details .donate-button {
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  padding: 12px 0;
+  border-radius: 16px;
+  margin: 8px 0;
+  display: inline-block;
+}
+
+.sidebar .team-details .donate-button .external-link {
+  padding-left: 6px;
+  width: 12px;
+  filter: invert(1);
 }
 
 .sidebar .team-details td {
