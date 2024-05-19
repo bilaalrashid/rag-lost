@@ -21,8 +21,6 @@ class LoginController {
         $host = $_SERVER["HTTP_HOST"];
         header("Location: http://{$host}/admin/");
         exit();
-
-        return true;
       }
 		}
 
