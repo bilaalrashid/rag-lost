@@ -46,30 +46,7 @@
       <div class="horizontal-layout">
         <div id="map"></div>
         <div class="sidebar">
-          <div class="team-details">
-            <table>
-              <tr>
-                <td>
-                  <img src="" />
-                </td>
-                <td>
-                  <div class="overview">
-                    <h2>Team Name</h2>
-                    <p class="tagline">Members Names</p>
-                    <p class="latest-update">Time, Distance, Location Name</p>
-                  </div>
-                </td>
-              </tr>
-            </table>
-            <details>
-              <summary>View Full History</summary>
-              <div class="update">
-                <p class="stats">Time, Distance, Location Name</p>
-                <p class="message">"An Update Tagline"</p>
-              </div>
-            </details>
-          </div>
-          <hr />
+          <!-- The contents are dynamically generates in /js/map.js -->
         </div>
       </div>
     </div>
