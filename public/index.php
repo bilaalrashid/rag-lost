@@ -28,6 +28,7 @@
     <link rel="icon" href="/img/favicon/favicon-32.png" sizes="32x32">
     <link rel="icon" href="/img/favicon/favicon-16.png" sizes="16x16">
     <link href="/favicon.ico" rel="shortcut icon">
+    <?php include 'tpl/matomo.php' ?>
   </head>
   <body>
     <div class="vertical-layout">
