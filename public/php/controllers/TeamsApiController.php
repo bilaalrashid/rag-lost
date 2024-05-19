@@ -42,7 +42,7 @@ class TeamsApiController {
 				"latitude" => $update->getLatitude(),
 				"longitude" => $update->getLongitude(),
 				"message" => $update->getUpdateMessage(),
-				"distanceKm" => CoordinateUtils::distance($update->getLatitude(), $update->getLongitude(), Constants::finish_latitude, Constants::finish_longitude, "K"),
+				"distanceKm" => CoordinateUtils::distance($update->getLatitude(), $update->getLongitude(), Constants::finishLatitude, Constants::finishLongitude, "K"),
 				"locationName" => $update->getLocationName(),
 				"timestamp" => $update->getUpdateTimestamp()->format(DateTime::ATOM),
 			));
@@ -52,7 +52,7 @@ class TeamsApiController {
 			"latitude" => $config->getStartLocationLatitude(),
 			"longitude" => $config->getStartLocationLongitude(),
 			"message" => "And they're off!",
-			"distanceKm" => CoordinateUtils::distance($config->getStartLocationLatitude(), $config->getStartLocationLongitude(), Constants::finish_latitude, Constants::finish_longitude, "K"),
+			"distanceKm" => CoordinateUtils::distance($config->getStartLocationLatitude(), $config->getStartLocationLongitude(), Constants::finishLatitude, Constants::finishLongitude, "K"),
 			"locationName" => "Mystery Dropoff",
 			"timestamp" => $config->getCountdownStart()->format(DateTime::ATOM),
 		));
