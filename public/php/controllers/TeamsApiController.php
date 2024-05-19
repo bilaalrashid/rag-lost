@@ -62,6 +62,7 @@ class TeamsApiController {
 			"name" => $team->getTeamName(),
 			"members" => $team->getMembers(),
 			"description" => $team->getTeamDescription(),
+			"charityName" => $team->getCharityName(),
 			"donateUrl" => $team->getDonateURL(),
 			"pinUrl" => $team->getPinURL(),
 			"teamImageUrl" => $team->getTeamImageURL(),

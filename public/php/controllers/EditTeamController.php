@@ -27,9 +27,10 @@ class EditTeamController {
 		$team_name = $_POST["team_name"];
 		$members = $_POST["members"];
 		$description = $_POST["description"];
+		$charity_name = $_POST["charity_name"];
 		$donate_url = $_POST["donate_url"];
 
-		if (empty($team_name) || empty($donate_url)) {
+		if (empty($team_name) || empty($charity_name) || empty($donate_url)) {
 			return false;
 		}
 
@@ -53,7 +54,7 @@ class EditTeamController {
 		}
 
 		$store = new TeamStore();
-		$store->editTeam($id, $team_name, $members ?: '', $description ?: '', $donate_url, $pin_url, $team_image_url, $team_color);
+		$store->editTeam($id, $team_name, $members ?: '', $description ?: '', $charity_name, $donate_url, $pin_url, $team_image_url, $team_color);
 
 		if ($team_image_url != $team->getTeamImageURL()) {
 			unlink($upload_directory . "/" . basename($team->getTeamImageURL()));

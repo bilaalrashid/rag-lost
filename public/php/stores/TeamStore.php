@@ -12,20 +12,21 @@ class TeamStore extends DatabaseController {
     * @param  string  $team_name       [The name of the team]
     * @param  string  $members         [A summary of all the team members]
     * @param  string  $description     [A description of the team]
-    * @param  string  $donate_url      [The URL to donate directly to the team]
+    * @param  string  $charity_name    [The name of the charity this team is raising money for]
+		* @param  string  $donate_url      [The URL to donate directly to the team]
     * @param  string  $pin_url         [The URL of the pin to display on the map for the team]
 		* @param  string  $team_image_url  [The URL of the team image]
 		* @param  string  $team_color      [The color of the team]
     */
-	public function addTeam($team_name, $members, $description, $donate_url, $pin_url, $team_image_url, $team_color) {
+	public function addTeam($team_name, $members, $description, $charity_name, $donate_url, $pin_url, $team_image_url, $team_color) {
 		$db = $this->connection;
 
 		$sql = 
-    "INSERT INTO team(team_name, members, team_description, donate_url, pin_url, team_image_url, team_color) 
-			VALUES (?, ?, ?, ?, ?, ?, ?)";
+    "INSERT INTO team(team_name, members, team_description, charity_name, donate_url, pin_url, team_image_url, team_color) 
+			VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$statement = $db->prepare($sql);
-		$statement->bind_param("sssssss", $team_name, $members, $description, $donate_url, $pin_url, $team_image_url, $team_color);
+		$statement->bind_param("ssssssss", $team_name, $members, $description, $charity_name, $donate_url, $pin_url, $team_image_url, $team_color);
 
 		$statement->execute();
 		$result = $statement->get_result();
@@ -72,21 +73,22 @@ class TeamStore extends DatabaseController {
    * @param  string  $team_name       [The name of the team]
    * @param  string  $members         [A summary of all the team members]
    * @param  string  $description     [A description of the team]
-   * @param  string  $donate_url      [The URL to donate directly to the team]
+   * @param  string  $charity_name    [The name of the charity this team is raising money for]
+	 * @param  string  $donate_url      [The URL to donate directly to the team]
    * @param  string  $pin_url         [The URL of the pin to display on the map for the team]
 	 * @param  string  $team_image_url  [The URL of the team image]
 	 * @param  string  $team_color      [The color of the team]
 	 */
-	public function editTeam($id, $team_name, $members, $description, $donate_url, $pin_url, $team_image_url, $team_color) {
+	public function editTeam($id, $team_name, $members, $description, $charity_name, $donate_url, $pin_url, $team_image_url, $team_color) {
 		$db = $this->connection;
 
 		$sql = 
     "UPDATE team 
-			SET team_name = ?, members = ?, team_description = ?, donate_url = ?, pin_url = ?, team_image_url = ?, team_color = ?
+			SET team_name = ?, members = ?, team_description = ?, charity_name = ?, donate_url = ?, pin_url = ?, team_image_url = ?, team_color = ?
 			WHERE id = ?";
 
 		$statement = $db->prepare($sql);
-		$statement->bind_param("sssssssi", $team_name, $members, $description, $donate_url, $pin_url, $team_image_url, $team_color, $id);
+		$statement->bind_param("ssssssssi", $team_name, $members, $description, $charity_name, $donate_url, $pin_url, $team_image_url, $team_color, $id);
 
 		$statement->execute();
 		$result = $statement->get_result();
@@ -119,7 +121,17 @@ class TeamStore extends DatabaseController {
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
 
-			$team = new Team($row["id"], $row["team_name"], $row["members"], $row["team_description"], $row["donate_url"], $row["pin_url"], $row["team_image_url"], $row["team_color"]);
+			$team = new Team(
+				$row["id"],
+				$row["team_name"],
+				$row["members"],
+				$row["team_description"],
+				$row["charity_name"],
+				$row["donate_url"],
+				$row["pin_url"],
+				$row["team_image_url"],
+				$row["team_color"]
+			);
 		}
 
 		$statement->close();
