@@ -24,7 +24,14 @@ Once the system is hosted, pretty much everything can be configured from the Adm
 
 When resetting for a future year, just delete all of the previous teams and all corresponding data on disk and in the database will be deleted alongside it. I would **strongly** advise against deleting data directly from the database unless you know exactly what you're doing. Specifically, don't delete rows from the `config` table.
 
-Data for the tracker page is refreshed using the API, which delivers JSON from GET requests to [`/api/config.php`](https://lost.susu.org/api/config.php) and [`/api/teams.php`](https://lost.susu.org/api/teams.php). This could be used to power other apps or bots that may wish to use this data.
+Data for the tracker page is refreshed using the API, which delivers JSON from GET requests:
+- [`/api/config.php`](https://lost.susu.org/api/config.php)
+- [`/api/teams.php`](https://lost.susu.org/api/teams.php)
+
+A full export CSVs and images used in dashboard can be downloading as a zip by sending a GET request to:
+- [`/api/export.php`](https://lost.susu.org/api/export.php)
+
+These can also be used to power other apps or bots that may wish to use this data.
 
 ## Gotchas and Limitations
 
