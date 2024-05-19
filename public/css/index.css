@@ -153,6 +153,7 @@ a {
   overflow: scroll;
   padding: 16px;
   min-width: 300px;
+  max-width: 450px;
   background-color: white;
 }
 
@@ -183,6 +184,11 @@ a {
   border-radius: 100%;
   border: 6px solid var(--rag-red-color);
   display: table-cell;
+}
+
+.sidebar .team-details .charity-name {
+  text-align: center;
+  margin: 8px 0;
 }
 
 .sidebar .team-details .donate-button {

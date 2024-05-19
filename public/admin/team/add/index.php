@@ -31,6 +31,11 @@
             <input type="text" name="description" placeholder="Some text here..." id="description">
           </div>
           <div class="form-row">
+            <label for="charity_name">Charity Name</label>
+            <span>The name of the charity this team is raising money for.</span>
+            <input type="text" name="charity_name" placeholder="Some text here..." id="charity_name" required>
+          </div>
+          <div class="form-row">
             <label for="donate_url">Donation Link</label>
             <span>A link to donate to the team (or just put the main donation link if there is none).</span>
             <input type="url" name="donate_url" placeholder="A URL here..." id="donate_url" required>

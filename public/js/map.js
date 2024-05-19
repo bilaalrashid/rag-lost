@@ -153,6 +153,11 @@ const updateSidebar = (data) => {
     table.appendChild(row);
     teamDetails.appendChild(table);
 
+    const charityName = document.createElement('p');
+    charityName.classList.add('charity-name');
+    charityName.innerHTML = `Fundraising for <strong>${team.charityName}</strong>`;
+    teamDetails.appendChild(charityName);
+
     const donateButton = document.createElement('a');
     donateButton.href = team.donateUrl;
     donateButton.target = '_blank';

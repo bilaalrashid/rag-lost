@@ -13,9 +13,10 @@ class AddTeamController {
 		$team_name = $_POST["team_name"];
 		$members = $_POST["members"];
 		$description = $_POST["description"];
+		$charity_name = $_POST["charity_name"];
 		$donate_url = $_POST["donate_url"];
 
-		if (!empty($team_name) && !empty($donate_url) && !empty($original_team_image_name)) {
+		if (!empty($team_name) && !empty($charity_name) && !empty($donate_url) && !empty($original_team_image_name)) {
 			$cropped_image = TeamImageController::cropTeamImage($upload_directory, $original_team_image_name);
 
 			if (!empty($cropped_image)) {
@@ -24,13 +25,20 @@ class AddTeamController {
 
 				if (!empty($pin_image)) {
 					$store = new TeamStore();
-					$store->addTeam($team_name, $members ?: '', $description ?: '', $donate_url, "/img/uploads/" . $pin_image, "/img/uploads/" . $cropped_image, $team_color);
+					$store->addTeam(
+						$team_name,
+						$members ?: '',
+						$description ?: '',
+						$charity_name,
+						$donate_url,
+						"/img/uploads/" . $pin_image,
+						"/img/uploads/" . $cropped_image,
+						$team_color
+					);
 
 					$host = $_SERVER["HTTP_HOST"];
 					header("Location: http://{$host}/admin/");
 					exit();
-
-					return true;
 				}
 			}
 		}
