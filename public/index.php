@@ -32,7 +32,7 @@
   <body>
     <div class="vertical-layout">
       <div class="main-banner">
-        <img src="img/rag.png" alt="Southampton RAG Logo" class="logo">
+        <img src="/img/rag.png" alt="Southampton RAG Logo" class="logo">
         <div class="info">
           <h1>RAG Lost • <?php echo $model->getCountdownStart()->format("jS F o"); ?></h1>
           <p class="description">12 hours to navigate back to Southampton from a mystery location</p>
@@ -46,7 +46,7 @@
       <div class="horizontal-layout">
         <div id="map"></div>
         <div class="sidebar">
-          <!-- The contents are dynamically generates in /js/map.js -->
+          <!-- The contents are dynamically generated in /js/map.js -->
         </div>
       </div>
     </div>
