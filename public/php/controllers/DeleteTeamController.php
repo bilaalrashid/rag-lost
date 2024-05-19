@@ -22,7 +22,7 @@ class DeleteTeamController {
 
       // Delete pin and team images associated with this team to prevent clogging up disk space
       $team = $team_store->getTeamFromID($id);
-      $upload_directory =  __DIR__ . "/../../img/uploads";
+      $upload_directory =  __DIR__ . "/../.." . Constants::imageUploadDirectory;
       unlink($upload_directory . "/" . basename($team->getTeamImageURL()));
       unlink($upload_directory . "/" . basename($team->getPinURL()));
 
@@ -32,8 +32,6 @@ class DeleteTeamController {
       $host = $_SERVER["HTTP_HOST"];
       header("Location: http://{$host}/admin");
       exit();
-
-      return true;
     }
 
     return false;

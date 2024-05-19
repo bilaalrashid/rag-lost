@@ -17,8 +17,6 @@ class DeleteLocationUpdateController {
       $host = $_SERVER["HTTP_HOST"];
       header("Location: http://{$host}/admin/location-update/view/?teamID={$team_id}");
       exit();
-
-      return true;
     }
 
     return false;

@@ -13,8 +13,8 @@ class ConfigApiController {
         "longitude" => $config->getStartLocationLongitude(),
       ),
       "endLocation" => array(
-        "latitude" => Constants::finish_latitude,
-        "longitude" => Constants::finish_longitude,
+        "latitude" => Constants::finishLatitude,
+        "longitude" => Constants::finishLongitude,
       ),
       "donationTotal" => $config->getDonationTotal(),
       "donateUrl" => $config->getDonateURL(),

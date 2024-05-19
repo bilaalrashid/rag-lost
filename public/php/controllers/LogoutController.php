@@ -12,8 +12,6 @@ class LogoutController {
 		$host = $_SERVER["HTTP_HOST"];
 		header("Location: http://{$host}/admin/login");
 		exit();
-
-		return null;
 	}
 
 	public function post() {

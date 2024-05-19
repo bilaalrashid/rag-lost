@@ -7,7 +7,7 @@ class AddTeamController {
 	}
 
 	public function post() {
-		$upload_directory =  __DIR__ . "/../../img/uploads";
+		$upload_directory =  __DIR__ . "/../.." . Constants::imageUploadDirectory;
 		$original_team_image_name = FileUploadController::validate_single_image('team_image', $upload_directory);
 
 		$team_name = $_POST["team_name"];
@@ -31,8 +31,8 @@ class AddTeamController {
 						$description ?: '',
 						$charity_name,
 						$donate_url,
-						"/img/uploads/" . $pin_image,
-						"/img/uploads/" . $cropped_image,
+						Constants::imageUploadDirectory . "/" . $pin_image,
+						Constants::imageUploadDirectory . "/" . $cropped_image,
 						$team_color
 					);
 

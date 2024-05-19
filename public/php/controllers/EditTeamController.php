@@ -38,7 +38,7 @@ class EditTeamController {
 		$team_color = $_POST["team_color"];
 		$pin_url = $team->getPinURL();
 
-		$upload_directory =  __DIR__ . "/../../img/uploads";
+		$upload_directory =  __DIR__ . "/../.." . Constants::imageUploadDirectory;
 		$original_team_image_name = FileUploadController::validate_single_image('team_image', $upload_directory);
 		if (!empty($original_team_image_name) || $team_color != $team->getTeamColor()) {
 			$cropped_image = TeamImageController::cropTeamImage($upload_directory, $original_team_image_name ?: basename($team->getTeamImageURL()));
@@ -47,8 +47,8 @@ class EditTeamController {
 				$pin_image = TeamImageController::createPinImage($upload_directory, $cropped_image, $team_color);
 
 				if (!empty($pin_image)) {
-					$team_image_url = "/img/uploads/" . $cropped_image;
-					$pin_url = "/img/uploads/" . $pin_image;
+					$team_image_url = Constants::imageUploadDirectory . "/" . $cropped_image;
+					$pin_url = Constants::imageUploadDirectory . "/" . $pin_image;
 				}
 			}
 		}
@@ -67,8 +67,6 @@ class EditTeamController {
 		$host = $_SERVER["HTTP_HOST"];
 		header("Location: http://{$host}/admin/");
 		exit();
-
-		return true;
 	}
 
 	public function get() {

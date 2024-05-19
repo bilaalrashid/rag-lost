@@ -12,8 +12,6 @@ class TrackerHoldingController {
       $host = $_SERVER["HTTP_HOST"];
       header("Location: http://{$host}/");
       exit();
-
-      return null;
     }
 
 		return $config;
