@@ -34,22 +34,22 @@ const updateMap = (data, config) => {
   const startIcon = L.icon({
     iconUrl: '/img/start_pin.png',  
     shadowUrl: '/img/pin_shadow.png',
-    iconSize: [30, 30], // size of the icon
-    shadowSize: [35, 35], // size of the shadow
-    iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
-    shadowAnchor: [17, 17],  // the same for the shadow
-    popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+    iconSize: [30, 30],     // size of the icon
+    shadowSize: [35, 35],   // size of the shadow
+    iconAnchor: [15, 15],   // point of the icon which will correspond to marker's location
+    shadowAnchor: [17, 17], // the same for the shadow
+    popupAnchor: [0, 0]     // point from which the popup should open relative to the iconAnchor
   });
   L.marker([config.startLocation.latitude, config.startLocation.longitude], { icon: startIcon }).addTo(map).bindPopup("<h3>Mystery Dropoff</h3>");
 
   const endIcon = L.icon({
     iconUrl: '/img/finish_pin.png',  
     shadowUrl: '/img/pin_shadow.png',
-    iconSize: [30, 30], // size of the icon
-    shadowSize: [35, 35], // size of the shadow
-    iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
-    shadowAnchor: [17, 17],  // the same for the shadow
-    popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+    iconSize: [30, 30],     // size of the icon
+    shadowSize: [35, 35],   // size of the shadow
+    iconAnchor: [15, 15],   // point of the icon which will correspond to marker's location
+    shadowAnchor: [17, 17], // the same for the shadow
+    popupAnchor: [0, 0]     // point from which the popup should open relative to the iconAnchor
   });
   L.marker([config.endLocation.latitude, config.endLocation.longitude], { icon: endIcon }).addTo(map).bindPopup("<h3>Finish Location</h3>");
 
@@ -58,11 +58,11 @@ const updateMap = (data, config) => {
     const icon = L.icon({
       iconUrl: team.pinUrl,  
       shadowUrl: '/img/pin_shadow.png',
-      iconSize: [30, 30], // size of the icon
-      shadowSize: [35, 35], // size of the shadow
-      iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
-      shadowAnchor: [17, 17],  // the same for the shadow
-      popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+      iconSize: [30, 30],     // size of the icon
+      shadowSize: [35, 35],   // size of the shadow
+      iconAnchor: [15, 15],   // point of the icon which will correspond to marker's location
+      shadowAnchor: [17, 17], // the same for the shadow
+      popupAnchor: [0, 0]     // point from which the popup should open relative to the iconAnchor
     });
     const marker = L.marker([currentLocation.latitude, currentLocation.longitude], { icon: icon }).addTo(map);
     const popupContents = `
@@ -115,91 +115,56 @@ const updateSidebar = (data) => {
   }
   sidebar.appendChild(toggle);
 
-  data.teams.forEach(team => {
+  data.teams.forEach((team, index) => {
     const currentLocation = team.updates[0];
-    
-    const teamDetails = document.createElement('div');
-    teamDetails.classList.add('team-details');
 
-    const table = document.createElement('table');
-    const row = document.createElement('tr');
-    const imageCell = document.createElement('td');
-    const image = document.createElement('img');
-    image.src = team.teamImageUrl;
-    image.style.borderColor = team.teamColor;
-    image.className = 'team-image';
-    imageCell.appendChild(image);
-    row.appendChild(imageCell);
+    sidebar.insertAdjacentHTML('beforeend', `
+      <div class="team-details">
+        <table>
+          <tr>
+            <td>
+              <img src="${team.teamImageUrl}" class="team-image" style="border-color: ${team.teamColor}" />
+            </td>
+            <td>
+              <div class="overview">
+                <h2>${team.name}</h2>
+                <p class="tagline">${team.members}</p>
+                <p class="latest-update">
+                  ${getTimeFromDateString(currentLocation.timestamp)}, ${Math.round(currentLocation.distanceKm)}km, ${currentLocation.locationName}
+                </p>
+              </div>
+            </td>
+          </tr>
+        </table>
 
-    const overviewCell = document.createElement('td');
-    const overviewContainer = document.createElement('div');
-    overviewContainer.classList.add('overview');
-    const name = document.createElement('h2');
-    name.innerText = team.name;
-    overviewContainer.appendChild(name);
+        <p class="charity-name">
+          Fundraising for <strong>${team.charityName}</strong>
+        </p>
 
-    const members = document.createElement('p');
-    members.classList.add('tagline');
-    members.innerText = team.members;
-    overviewContainer.appendChild(members);
+        <a href="${team.donateUrl}" target="_blank" class="donate-button" style="background-color: ${team.teamColor};">
+          <span>Donate Online</span>
+          <img src="/img/external-link.svg" class="external-link" />
+        </a>
 
-    const latestUpdate = document.createElement('p');
-    latestUpdate.classList.add('latest-update');
-    latestUpdate.innerText = `${getTimeFromDateString(currentLocation.timestamp)}, ${Math.round(currentLocation.distanceKm)}km, ${currentLocation.locationName}`;
-    overviewContainer.appendChild(latestUpdate);
+        <details>
+          <summary>View Full History</summary>
+          ${
+            team.updates.map(update => `
+              <div class="update">
+                <p class="stats">${getTimeFromDateString(update.timestamp)}, ${Math.round(update.distanceKm)}km, ${update.locationName}</p>
+                <p class="message">"${update.message}"</p>
+              </div>
+            `).join('')
+          }
+        </details>
+      </div>
+    `);
 
-    overviewCell.appendChild(overviewContainer);
-    row.appendChild(overviewCell);
-    table.appendChild(row);
-    teamDetails.appendChild(table);
-
-    const charityName = document.createElement('p');
-    charityName.classList.add('charity-name');
-    charityName.innerHTML = `Fundraising for <strong>${team.charityName}</strong>`;
-    teamDetails.appendChild(charityName);
-
-    const donateButton = document.createElement('a');
-    donateButton.href = team.donateUrl;
-    donateButton.target = '_blank';
-    donateButton.className = 'donate-button';
-    donateButton.style.backgroundColor = team.teamColor;
-    teamDetails.appendChild(donateButton);
-    const donateText = document.createElement('span');
-    donateText.innerText = 'Donate Online';
-    donateButton.appendChild(donateText);
-    const donateIcon = document.createElement('img');
-    donateIcon.src = '/img/external-link.svg';
-    donateIcon.className = 'external-link';
-    donateButton.appendChild(donateIcon);
-
-    const details = document.createElement('details');
-    const summary = document.createElement('summary');
-    summary.innerText = 'View Full History';
-    details.appendChild(summary);
-
-    team.updates.forEach(update => {
-      const updateDiv = document.createElement('div');
-      updateDiv.classList.add('update');
-
-      const stats = document.createElement('p');
-      stats.classList.add('stats');
-      stats.innerText = `${getTimeFromDateString(update.timestamp)}, ${Math.round(update.distanceKm)}km, ${update.locationName}`;
-      updateDiv.appendChild(stats);
-
-      const message = document.createElement('p');
-      message.classList.add('message');
-      message.innerText = `"${update.message}"`;
-      updateDiv.appendChild(message);
-
-      details.appendChild(updateDiv);
-    });
-
-    teamDetails.appendChild(details);
-
-    sidebar.appendChild(teamDetails);
-
-    const separator = document.createElement('hr');
-    separator.className = 'separator';
-    sidebar.appendChild(separator);
+    // Don't show after the last team
+    if (!Object.is(data.teams.length - 1, index)) {
+      sidebar.insertAdjacentHTML('beforeend', `
+        <hr class="separator" />
+      `);
+    }
   });
 }
