@@ -147,7 +147,7 @@ const updateSidebar = (data) => {
         </a>
 
         <details>
-          <summary>View Full History</summary>
+          <summary>View Full Journey</summary>
           ${
             team.updates.map(update => `
               <div class="update">
