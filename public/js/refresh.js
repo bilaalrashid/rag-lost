@@ -26,16 +26,10 @@ const secondsToCountdown = (seconds) => {
   return `${hours.toLocaleString('en-gb', { minimumIntegerDigits: 2 })}:${minutes.toLocaleString('en-gb', { minimumIntegerDigits: 2 })}${secondsComponent}`; 
 }
 
-const stripTimezoneFromDate = (date) => {
-  date.setMinutes(date.getMinutes() + (-1 * date.getTimezoneOffset()));
-  return date;
-}
-
 const updateCountdown = () => {
   if (countdownStart) {
     const start = new Date(countdownStart);
-    // Strip timezone from date incase of British Summer Time
-    const now = stripTimezoneFromDate(new Date());
+    const now = new Date();
     if (now > start) {
       const maxTime = 60 * 60 * 12; // 12 hours
       const elapsed = (now - start) / 1000;
