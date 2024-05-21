@@ -57,7 +57,7 @@
 				</div>
 				<div>
 					<h1>Export Data</h1>
-					<p>Download all the data from this event as a zip file. This is a great way to archive the results from past events so they can be kept for future record. If you're resetting for a new event, it would be a good idea to download this data and store it somewhere permanent.</p>
+					<p>Download all the data from this event as a zip file. This is a great way to archive the results from past events so they can be kept for future record. If you're resetting for a new event, it would be a good idea to download this data and store it somewhere permanent. You can also download an image of the <a href="/">map</a> by hovering over the download button and clicking the icon that appears.</p>
 					<a href="/api/export.php" class="link-button">Download Data</a>
 				</div>
 			</div>

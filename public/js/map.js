@@ -9,6 +9,14 @@ L.control.zoom({
   position: 'bottomleft'
 }).addTo(map);
 
+L.easyPrint({
+  sizeModes: ['A4Landscape'],
+  filename: 'rag-lost',
+  exportOnly: true,
+  hideControlContainer: true,
+	position: 'bottomright',
+}).addTo(map);
+
 const getTimeFromDateString = (timestamp) => {
   const date = new Date(timestamp);
   return `${date.getHours().toLocaleString('en-gb', { minimumIntegerDigits: 2 })}:${date.getMinutes().toLocaleString('en-gb', { minimumIntegerDigits: 2 })}`
