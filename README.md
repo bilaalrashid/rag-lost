@@ -1,6 +1,6 @@
-# RAG LOST
+# RAG Lost
 
-The online tracker for Southampton RAG LOST!
+The online tracker for Southampton RAG Lost!
 
 ![Screenshot](images/screenshot.png)
 
@@ -39,7 +39,7 @@ This project was written specifically for the [SUSU Clubs & Societies Webhosting
 
 Whilst there is logic that determines if the user should be displayed the tracker page or the holding page depending on the current time (in order to prevent spoilers of the drop-off location). This same logic does not apply to the API, so this information could be leaked in advance by accessing the API endpoints.
 
-Finally, this system only supports the LOST event (where people try to make their way back from a mystery location to Southampton). It does not support the Jailbreak event (where people try to get as far away from Southampton as possible), although that may be possible to achieve with some tweaks to this codebase. The recovered code for the old Jailbreak site is stored in the [`ragtacker`](https://github.com/bilaalrashid/rag-lost/tree/ragtracker) branch.
+Finally, this system only supports the Lost event (where people try to make their way back from a mystery location to Southampton). It does not support the Jailbreak event (where people try to get as far away from Southampton as possible), although that may be possible to achieve with some tweaks to this codebase. The recovered code for the old Jailbreak site is stored in the [`ragtacker`](https://github.com/bilaalrashid/rag-lost/tree/ragtracker) branch.
 
 ## Deploying to Production
 
