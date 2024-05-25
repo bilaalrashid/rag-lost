@@ -200,6 +200,11 @@ a {
   border-radius: 16px;
   margin: 8px 0;
   display: inline-block;
+  transition: 0.2s;
+}
+
+.sidebar .team-details .donate-button:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .sidebar .team-details .donate-button .external-link {
