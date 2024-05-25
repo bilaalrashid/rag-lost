@@ -47,9 +47,10 @@ Finally, this system only supports the Lost event (where people try to make thei
 ## Deploying to Production
 
 1. Setup a production database and initialise the schema by running all of the files [`migrations/migration-*.sql`](https://github.com/bilaalrashid/rag-lost/tree/main/migrations) in numerical order
-2. Upload the contents of the [`public/`](https://github.com/bilaalrashid/rag-lost/tree/main/public) directory to the webroot directory of the production server
-3. Edit [`public/php/stores/__connect.php`](https://github.com/bilaalrashid/rag-lost/blob/main/public/php/stores/__connect.php) with the connection details of your mock database
-4. Edit [`public/php/helpers/AuthenticationController.php`](https://github.com/bilaalrashid/rag-lost/blob/main/public/php/helpers/AuthenticationController.php) with credentials for the admin panel
-5. Security: Configure your server (e.g. Apache .htaccess or Nginx config) to return HTTP 403 Forbidden when accessing anything in the [`public/php/`](https://github.com/bilaalrashid/rag-lost/tree/main/public/php) directory.
-6. Security: Setup an SSL certificate and redirect all HTTP traffic to HTTPS
-7. Security: Secure the rest of your hosting environment
+2. Backup the existing webroot directory on the production server
+3. Upload the contents of the [`public/`](https://github.com/bilaalrashid/rag-lost/tree/main/public) directory to the webroot directory of the production server
+4. Edit [`public/php/stores/__connect.php`](https://github.com/bilaalrashid/rag-lost/blob/main/public/php/stores/__connect.php) with the connection details of your mock database
+5. Edit [`public/php/helpers/AuthenticationController.php`](https://github.com/bilaalrashid/rag-lost/blob/main/public/php/helpers/AuthenticationController.php) with credentials for the admin panel
+6. Security: Configure your server (e.g. Apache .htaccess or Nginx config) to return HTTP 403 Forbidden when accessing anything in the [`public/php/`](https://github.com/bilaalrashid/rag-lost/tree/main/public/php) directory.
+7. Security: Setup an SSL certificate and redirect all HTTP traffic to HTTPS
+8. Security: Secure the rest of your hosting environment
