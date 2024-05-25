@@ -14,6 +14,9 @@ The online tracker for Southampton RAG Lost!
 ## Getting Started
 
 1. Clone the repo
+```
+git clone https://github.com/bilaalrashid/rag-lost.git
+```
 2. Initialise a mock MySQL/MariaDB database by running all of the files [`migrations/migration-*.sql`](https://github.com/bilaalrashid/rag-lost/tree/main/migrations) in numerical order
 3. Edit [`public/php/stores/__connect.php`](https://github.com/bilaalrashid/rag-lost/blob/main/public/php/stores/__connect.php) with the connection details of your mock database
 4. Setup a mock Apache/Nginx server with the server directory set to the [`public/`](https://github.com/bilaalrashid/rag-lost/tree/main/public) directory
